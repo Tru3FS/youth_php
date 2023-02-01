@@ -1,0 +1,13 @@
+PHP_FLAG register_globals On
+PHP_FLAG display_startup_errors Off
+PHP_FLAG display_errors Off
+PHP_FLAG html_errors Off
+PHP_FLAG log_errors on
+
+ErrorDocument 404 /400_error.php
+ErrorDocument 401 /400_error.php
+ErrorDocument 403 /400_error.php
+ErrorDocument 400 /400_error.php
+ErrorDocument 500 /500.php
+ErrorDocument 502 /500.php
+ErrorDocument 504 /500.php

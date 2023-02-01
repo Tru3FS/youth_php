@@ -1,0 +1,19 @@
+[2023-01-16 07:53:10.669961] READY-API: https://api-std.mainpay.co.kr/v1/payment/ready
+[2023-01-16 07:53:10.670443] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 
+    [mbrRefNo] => 63c483d69dddb
+    [paymethod] => CARD
+    [amount] => 32000
+    [goodsName] => 주말농구C (토일 18시)
+    [goodsCode] => 00300216
+    [approvalUrl] => https://sports.samsungnc.com/Noble/pc/_3_approval.php
+    [closeUrl] => https://sports.samsungnc.com/Noble/pc/_3_close.php
+    [customerName] => 짐어스00
+    [customerEmail] => 
+    [timestamp] => 202301160753103670
+    [signature] => 1543fd04adc007c8517c380412f66f6b8ad679fc38645dfe972b07d4c72764ba
+)
+
+[2023-01-16 07:53:10.749971] RESPONSE: {"resultCode":"400","resultMessage":"## mbrNo ##  must not be blank [mbrNo=, mbrRefNo=63c483d69dddb]","developerMessage":"BAD_REQUEST","detailResultCode":"","charset":"UTF-8","data":""}

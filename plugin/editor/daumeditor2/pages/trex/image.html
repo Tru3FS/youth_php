@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Daum에디터 - 이미지 첨부</title> 
+<script src="../../js/popup.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="../../css/popup.css" type="text/css"  charset="utf-8"/>
+
+<script type='text/javascript' src='../../js/jquery-1.6.1.min.js'></script>
+
+<script type='text/javascript' src='../../js/jquery.loadmask.min.js'></script>
+
+
+<script type="text/javascript"> 
+// <![CDATA[
+function initUploader(){
+    var _opener = PopupUtil.getOpener();
+    if (!_opener) {
+        alert('잘못된 경로로 접근하셨습니다.');
+        return;
+    }
+    
+  
+}
+// ]]>
+</script>
+
+<script language="javascript"> 
+<!--
+function image_frmchk() {
+  var frm = document.form;
+ 
+  //if(!frm.myfile[].value) {
+  //  alert("업로드하실 이미지를 선택해주세요.");
+    //frm.myfile[].focus();
+   // return;
+  //}
+ 
+  $("#uploadform").mask('');
+ 
+  frm.submit();
+}
+//-->
+</script>
+
+</head>
+<body onload="initUploader();" id="uploadform">
+<div class="wrapper">
+	<div class="header">
+		<h1>사진 첨부</h1>
+	</div>	
+	<div class="body">
+		    <form name="form" method="post" action="./upload_ok.php" enctype="multipart/form-data">
+             <input type="hidden" name="u_type" value="1"> 
+      <dl  class="alert">
+          <dt><input type="file" name="myfile[]" style="width:500px;"  multiple></dt>
+          <dd>업로드 하실 이미지를 선택해주세요.<br>이미지 사이즈가 가로 1200픽셀이 넘지 않도록 합니다.이미지는 jpg,gif,bmp등 이미지 파일만 업로드 가능합니다.</dd>
+		  <!--<dd><br><br><input type="checkbox" name="story" value="1"> 링크 이미지 올릴때는 체크하세요.</dd>-->
+      </dl>
+    </form>
+	</div>
+	<div class="footer">
+		<p><a href="#" onclick="closeWindow();" title="닫기" class="close">닫기</a></p>
+		<ul>
+			<li class="submit"><a href="#" onclick="image_frmchk();" title="등록" class="btnlink">등록</a> </li>
+			<li class="cancel"><a href="#" onclick="closeWindow();" title="취소" class="btnlink">취소</a></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
+
+

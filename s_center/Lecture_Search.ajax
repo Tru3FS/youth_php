@@ -1,0 +1,152 @@
+<!-- 강의찾기 -->
+	<ul class="step_items">
+		<li class="on">
+			<h5 class="title">
+				<button type="button">
+					<span>과목</span>
+				</button>
+			</h5>
+			<div class="cont">
+				<input type="hidden" id="subSChkVal" name="subChkVal" value="" />
+				<ul>
+					<li class="js_select"><button type="button" onclick="javascript:clickCdNum('B10055')" value="B10055">
+							<span>독서</span>
+						</button></li>
+					<li class="js_select"><button type="button" onclick="javascript:clickCdNum('B10058')" value="B10058">
+							<span>문학</span>
+						</button></li>
+					<li class="js_select"><button type="button" onclick="javascript:clickCdNum('B10062')" value="B10062">
+							<span>국어</span>
+						</button></li>
+					<li class="js_select"><button type="button" onclick="javascript:clickCdNum('B10064')" value="B10064">
+							<span>화법과 작문</span>
+						</button></li>
+					<li class="js_select"><button type="button" onclick="javascript:clickCdNum('B10068')" value="B10068">
+							<span>언어와 매체</span>
+						</button></li>
+					<li class="js_select"><button type="button" onclick="javascript:clickCdNum('B10069')" value="B10069">
+							<span>국어종합</span>
+						</button></li>
+					</ul>
+			</div>
+		</li>
+		<li class="on">
+			<h5 class="title">
+				<button type="button">
+					<span>학습단계</span>
+				</button>
+			</h5>
+			<div class="cont">
+				<ul id="subStepList">
+
+				</ul>
+			</div>
+		</li>
+		<li class="on">
+			<h5 class="title">
+				<button type="button">
+					<span>학습수준</span>
+				</button>
+			</h5>
+			<div class="cont">
+				<ul id="sSubStepList">
+				
+				</ul>
+			</div>
+		</li>
+	</ul>
+	<div class="step_options">
+		<dl>
+			<dt>추가선택</dt>
+			<dd>
+				<form id="quickSrchFm">
+				<input type="hidden" id="item0" name="item0" value="" />
+				<input type="hidden" id="item1" name="item1" value="" />
+				<input type="hidden" id="item2" name="item2" value="" />
+				<input type="hidden" id="item3" name="item3" value="" />
+				<input type="hidden" id="item4" name="item4" value="" />
+				<input type="hidden" id="ordType" name="ordType" value="" />
+				<input type="hidden" id="reqType" name="reqType" value="A" />
+				<div class="chk_box">
+					<input type="checkbox" name="captionYn" id="sStepChk1" value="Y"> 
+					<label for="sStepChk1">강의자막</label>
+				</div>
+				<div class="chk_box">
+					<input type="checkbox" name="bookYn" id="sStepChk2" value="Y"> 
+					<label for="sStepChk2">교재있음</label>
+				</div>
+				</form>				
+			</dd>
+		</dl>
+		<button type="button" class="btn_L_col2" onclick="javascript:searchSbjtList()" disabled>
+			<span>강좌검색</span>
+		</button>
+<!-- //강의찾기 -->
+
+<script>
+
+	function clickCdNum(item2){
+		$("#sSbjtAreList").hide();
+		$('.btn_L_col2').attr('disabled', true);
+		var target = $(".chkVal").children().val();
+		$("#subSChkVal").val(item2);
+		var area = "A100";
+		$.ajax({
+			type : 'POST',
+			url :  "/ebs/lms/QuickSrchLec/quickSrchLecSubStepAjax.ajax",
+			dataType : 'html',
+			data : {'item2':item2, 'target':target, 'area':area},
+			async:false,
+			contentType:"application/x-www-form-urlencoded; charset=UTF-8",
+			success : function(data){
+				$('#subStepList').empty();
+				$('#sSubStepList').empty();
+				$('#subStepList').html(data);
+				
+			 }
+			, error : function(){
+			}
+		});	
+		
+	}
+	
+	function searchSbjtList(ordType){
+		if($("#subSChkVal").val() != undefined && $("#subSChkVal").val() != ""){
+			if($("#subSChkVal2").val() != undefined && $("#subSChkVal2").val() != ""){
+				if($("#item5").val() != undefined && $("#item5").val() != ""){
+		
+					$("#item0").val($("#quickFrm [name=target1]").val());
+					$("#item1").val($("#quickFrm [name=area1]").val());
+					$("#item2").val($("#quickFrm [name=item21]").val());
+					$("#item3").val($("#quickFrm [name=learnstep1]").val());
+					$("#item4").val($("#quickFrm [name=item5]").val());
+					$("#ordType").val(ordType);
+					var quickSrchFm = $('#quickSrchFm').serialize();
+				
+				 	$.ajax({
+						type : 'POST',
+						url :  "/ebs/lms/QuickSrchLec/quickSrchLecSbjtListAjax.ajax",
+						dataType : 'html',
+						data : quickSrchFm,
+						async:false,
+						contentType:"application/x-www-form-urlencoded; charset=UTF-8",
+						success : function(data){
+							$('#sSbjtAreList').html(data);
+							$('#sSbjtAreList').show();
+						 }
+						, error : function(){
+						}
+					});
+				}else{
+					alert("학습수준을 선택하세요");
+				}
+
+			}else{
+				alert("학습단계를 선택하세요");
+			}
+		
+		}else{
+			alert("과목을 선택하세요");
+		}
+	}
+</script>

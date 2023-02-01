@@ -1,0 +1,861 @@
+[2022-07-03 10:59:07.211466] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid2feb5ab6d83c4a2ea6317a40851d9f9b7df67, authToken:AUTH648221b7dc534b27b6d273f6059f5703a6d3
+[2022-07-03 10:59:07.223905] center_id-PARAM: 01
+[2022-07-03 10:59:07.224148] member_code-PARAM: 
+[2022-07-03 10:59:07.224352] member_name-PARAM: 
+[2022-07-03 10:59:07.224532] rent_no-PARAM: 
+[2022-07-03 10:59:07.224711] idx-PARAM: 
+[2022-07-03 10:59:07.224890] PC-PARAM: PC
+[2022-07-03 10:59:07.225067] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 10:59:07.225260] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 10:59:07.225438] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c0f7d3c0ba7
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 0(수)숲체험단 루뻬
+    [goodsCode] => 00300022
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 
+    [customerEmail] => 
+    [timestamp] => 202207031059071432
+    [signature] => 627e35cf7d04857decc901f9256b9474bda5d61e6c9db3cfc379e783297719b3
+    [aid] => aid2feb5ab6d83c4a2ea6317a40851d9f9b7df67
+    [authToken] => AUTH648221b7dc534b27b6d273f6059f5703a6d3
+    [payType] => I
+)
+
+[2022-07-03 11:01:01.875425] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid6e26782f10ee4db2afa1b9b2a971f34dac223, authToken:AUTH9d10f98cb5db4b919cdd29ecf60abd9800f0
+[2022-07-03 11:01:01.875938] center_id-PARAM: 01
+[2022-07-03 11:01:01.876115] member_code-PARAM: 
+[2022-07-03 11:01:01.876315] member_name-PARAM: 
+[2022-07-03 11:01:01.876492] rent_no-PARAM: 
+[2022-07-03 11:01:01.876665] idx-PARAM: 
+[2022-07-03 11:01:01.876839] PC-PARAM: PC
+[2022-07-03 11:01:01.877010] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:01:01.877215] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:01:01.877394] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c0f846e6958
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 0(수)숲체험단 루뻬
+    [goodsCode] => 00300022
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 
+    [customerEmail] => 
+    [timestamp] => 202207031101015136
+    [signature] => e14aec2e0a53b35ee2486637b77cbf228e05ab0e64085564c0da206d935ce76c
+    [aid] => aid6e26782f10ee4db2afa1b9b2a971f34dac223
+    [authToken] => AUTH9d10f98cb5db4b919cdd29ecf60abd9800f0
+    [payType] => I
+)
+
+[2022-07-03 11:01:10.754488] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid6e26782f10ee4db2afa1b9b2a971f34dac223, authToken:AUTH9d10f98cb5db4b919cdd29ecf60abd9800f0
+[2022-07-03 11:01:10.754985] center_id-PARAM: 01
+[2022-07-03 11:01:10.755171] member_code-PARAM: 
+[2022-07-03 11:01:10.755347] member_name-PARAM: 
+[2022-07-03 11:01:10.755519] rent_no-PARAM: 
+[2022-07-03 11:01:10.755691] idx-PARAM: 
+[2022-07-03 11:01:10.755865] PC-PARAM: PC
+[2022-07-03 11:01:10.756036] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:01:10.756236] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:01:10.756412] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c0f846e6958
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 0(수)숲체험단 루뻬
+    [goodsCode] => 00300022
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 
+    [customerEmail] => 
+    [timestamp] => 202207031101107485
+    [signature] => fec1c1141ea3b0d74ad6a96e72c1f4ea2b01de71590b04d77214d33d125dab96
+    [aid] => aid6e26782f10ee4db2afa1b9b2a971f34dac223
+    [authToken] => AUTH9d10f98cb5db4b919cdd29ecf60abd9800f0
+    [payType] => I
+)
+
+[2022-07-03 11:02:05.711905] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid9fb027d387cf4dab831d3de552a255a39dd4d, authToken:AUTH714097abd9154b048381e650bd08f95377f3
+[2022-07-03 11:02:05.712333] center_id-PARAM: 01
+[2022-07-03 11:02:05.712523] member_code-PARAM: 
+[2022-07-03 11:02:05.712698] member_name-PARAM: 
+[2022-07-03 11:02:05.712869] rent_no-PARAM: 
+[2022-07-03 11:02:05.713042] idx-PARAM: 
+[2022-07-03 11:02:05.713217] PC-PARAM: PC
+[2022-07-03 11:02:05.713388] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:02:05.713582] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:02:05.713755] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c0f885d1d01
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 0(수)숲체험단 루뻬
+    [goodsCode] => 00300022
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 
+    [customerEmail] => 
+    [timestamp] => 202207031102055208
+    [signature] => 84944caa20acabe7cadbefa00dc63bb26309ca4d096780db972fbc801dbdce5e
+    [aid] => aid9fb027d387cf4dab831d3de552a255a39dd4d
+    [authToken] => AUTH714097abd9154b048381e650bd08f95377f3
+    [payType] => I
+)
+
+[2022-07-03 11:03:57.659974] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid84dd4a918bce47e6b5102facd643a51e1e8cd, authToken:AUTH74e06c6f39124bc8bb4063bdd9a0f605f0af
+[2022-07-03 11:03:57.660457] center_id-PARAM: 01
+[2022-07-03 11:03:57.660645] member_code-PARAM: 
+[2022-07-03 11:03:57.660819] member_name-PARAM: 
+[2022-07-03 11:03:57.660991] rent_no-PARAM: 
+[2022-07-03 11:03:57.661162] idx-PARAM: 
+[2022-07-03 11:03:57.661338] PC-PARAM: PC
+[2022-07-03 11:03:57.661511] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:03:57.661699] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:03:57.661872] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c0f8e73dc87
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 0(수)숲체험단 루뻬
+    [goodsCode] => 00300022
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 
+    [customerEmail] => 
+    [timestamp] => 202207031103572693
+    [signature] => fb52026d4232110ed0c31bf41533d04773259acf5457724c1f42c2a936ee9b27
+    [aid] => aid84dd4a918bce47e6b5102facd643a51e1e8cd
+    [authToken] => AUTH74e06c6f39124bc8bb4063bdd9a0f605f0af
+    [payType] => I
+)
+
+[2022-07-03 11:04:24.684681] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid33f7111ed81d40fa9c47e4fc13a9848d7e6e0, authToken:AUTH39dbbe6489084e1b8fb975baea9a2ba6e9e2
+[2022-07-03 11:04:24.685106] center_id-PARAM: 01
+[2022-07-03 11:04:24.685285] member_code-PARAM: 
+[2022-07-03 11:04:24.685486] member_name-PARAM: 
+[2022-07-03 11:04:24.685665] rent_no-PARAM: 
+[2022-07-03 11:04:24.685838] idx-PARAM: 
+[2022-07-03 11:04:24.686009] PC-PARAM: PC
+[2022-07-03 11:04:24.686180] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:04:24.686372] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:04:24.686545] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c0f9135decc
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 0(수)숲체험단 루뻬
+    [goodsCode] => 00300022
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 
+    [customerEmail] => 
+    [timestamp] => 202207031104243805
+    [signature] => f2d237ed83ce63b1bd53b465a0ded576f2f6240c25f7bf5a315eff4a09e7e369
+    [aid] => aid33f7111ed81d40fa9c47e4fc13a9848d7e6e0
+    [authToken] => AUTH39dbbe6489084e1b8fb975baea9a2ba6e9e2
+    [payType] => I
+)
+
+[2022-07-03 11:10:30.900808] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid492d7460a96b4a7ea3d70e25c4f59908a010c, authToken:AUTH716b0b1f78cc401fafeb1d2d8812c489a5fc
+[2022-07-03 11:10:30.901293] center_id-PARAM: 01
+[2022-07-03 11:10:30.901472] member_code-PARAM: 
+[2022-07-03 11:10:30.901652] member_name-PARAM: 
+[2022-07-03 11:10:30.901853] rent_no-PARAM: 
+[2022-07-03 11:10:30.902025] idx-PARAM: 
+[2022-07-03 11:10:30.902196] PC-PARAM: PC
+[2022-07-03 11:10:30.902368] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:10:30.902555] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:10:30.902737] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c0fa8125663
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 0(수)숲체험단 루뻬
+    [goodsCode] => 00300022
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 
+    [customerEmail] => 
+    [timestamp] => 202207031110300469
+    [signature] => f547bad4bb7c70a485e31f4d84045229607a00aa2f8fec8c6f5b61e9a140afb0
+    [aid] => aid492d7460a96b4a7ea3d70e25c4f59908a010c
+    [authToken] => AUTH716b0b1f78cc401fafeb1d2d8812c489a5fc
+    [payType] => I
+)
+
+[2022-07-03 11:14:52.499239] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid38486bcfc6e543caab475229477a4f5d154c2, authToken:AUTHb76595898d534453b77d24356b201a36f1ec
+[2022-07-03 11:14:52.499670] center_id-PARAM: 01
+[2022-07-03 11:14:52.499852] member_code-PARAM: 
+[2022-07-03 11:14:52.500028] member_name-PARAM: 
+[2022-07-03 11:14:52.500214] rent_no-PARAM: 
+[2022-07-03 11:14:52.500391] idx-PARAM: 
+[2022-07-03 11:14:52.500565] PC-PARAM: PC
+[2022-07-03 11:14:52.500740] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:14:52.500932] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:14:52.501111] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c0fb84ed14e
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 0(수)숲체험단 루뻬
+    [goodsCode] => 00300022
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 
+    [customerEmail] => 
+    [timestamp] => 202207031114524523
+    [signature] => f980d4c5ac363d3b2b48a534fa246061c8d2dd070112f929ef4e932bc570e1b2
+    [aid] => aid38486bcfc6e543caab475229477a4f5d154c2
+    [authToken] => AUTHb76595898d534453b77d24356b201a36f1ec
+    [payType] => I
+)
+
+[2022-07-03 11:18:19.615066] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid09f8f024e8744708ab81bd11ae18e9e91d387, authToken:AUTH2e57e607b0104eda93d105006db986613990
+[2022-07-03 11:18:19.615594] center_id-PARAM: 01
+[2022-07-03 11:18:19.615779] member_code-PARAM: 0122060063
+[2022-07-03 11:18:19.615963] member_name-PARAM: 
+[2022-07-03 11:18:19.616144] rent_no-PARAM: 
+[2022-07-03 11:18:19.616321] idx-PARAM: 12
+[2022-07-03 11:18:19.616498] PC-PARAM: PC
+[2022-07-03 11:18:19.616695] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:18:19.616900] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:18:19.617084] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c0fc3873269
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 0(수)숲체험단 루뻬
+    [goodsCode] => 00300022
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031118198746
+    [signature] => 6bc1f1220c6016e02f34f648cf9f552f65b695590664a78fa7eb24eac637e930
+    [aid] => aid09f8f024e8744708ab81bd11ae18e9e91d387
+    [authToken] => AUTH2e57e607b0104eda93d105006db986613990
+    [payType] => I
+)
+
+[2022-07-03 11:24:25.000186] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid7b82e155396a4cebae82881cab274a89ad26a, authToken:AUTHa1472ec29f664f07bbf8a09a21de91ac4423
+[2022-07-03 11:24:25.000680] center_id-PARAM: 01
+[2022-07-03 11:24:25.000863] member_code-PARAM: 0122060063
+[2022-07-03 11:24:25.001039] member_name-PARAM: 
+[2022-07-03 11:24:25.001218] rent_no-PARAM: 
+[2022-07-03 11:24:25.001392] idx-PARAM: 11
+[2022-07-03 11:24:25.001566] PC-PARAM: PC
+[2022-07-03 11:24:25.001750] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:24:25.001942] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:24:25.002117] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c0fdc1910cc
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 스쿼시강습B-18시
+    [goodsCode] => 00300049
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031124255804
+    [signature] => 659a491ecacb717de00f1f245e377c4f0a7d534e73af3f94617bd3db6e01a01b
+    [aid] => aid7b82e155396a4cebae82881cab274a89ad26a
+    [authToken] => AUTHa1472ec29f664f07bbf8a09a21de91ac4423
+    [payType] => I
+)
+
+[2022-07-03 11:30:21.132158] RECEIVE-PARAM: ## 인증결과수신 ## aid:aidce5fadb927e042c2bc09853a8476fd9ab3c8d, authToken:AUTH65e85d5f2d88480a84bd3196fb4312dcb1c3
+[2022-07-03 11:30:21.132609] center_id-PARAM: 01
+[2022-07-03 11:30:21.132792] member_code-PARAM: 0122060063
+[2022-07-03 11:30:21.132971] member_name-PARAM: 박평순
+[2022-07-03 11:30:21.133148] rent_no-PARAM: 
+[2022-07-03 11:30:21.133332] idx-PARAM: 10
+[2022-07-03 11:30:21.133537] PC-PARAM: PC
+[2022-07-03 11:30:21.133713] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:30:21.133904] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:30:21.134081] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c0ff27a761c
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 골프강습C(동호회)
+    [goodsCode] => 00300064
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031130215468
+    [signature] => 7e8adc10c9291ad46d5078babe4e723aeba14f8c0fbe7dc5ec16b7578bd4d62f
+    [aid] => aidce5fadb927e042c2bc09853a8476fd9ab3c8d
+    [authToken] => AUTH65e85d5f2d88480a84bd3196fb4312dcb1c3
+    [payType] => I
+)
+
+[2022-07-03 11:36:31.109934] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid24343293c2ef4a41bf2d5b99efd96767d6c4b, authToken:AUTH9de6e74e0db4473c9eb3486455c96a68aa67
+[2022-07-03 11:36:31.110367] center_id-PARAM: 01
+[2022-07-03 11:36:31.110577] member_code-PARAM: 0122060063
+[2022-07-03 11:36:31.110762] member_name-PARAM: 박평순
+[2022-07-03 11:36:31.110940] rent_no-PARAM: 
+[2022-07-03 11:36:31.111115] idx-PARAM: 9
+[2022-07-03 11:36:31.111293] PC-PARAM: PC
+[2022-07-03 11:36:31.111467] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:36:31.111665] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:36:31.111845] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c1009900b0e
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => (어린이집)축구-(화,목) 16시
+    [goodsCode] => 00300023
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031136317582
+    [signature] => 15ef82c833448ee79c02227adc78f7d3155b9fe9eab36e2d0c3f77598cdeee4c
+    [aid] => aid24343293c2ef4a41bf2d5b99efd96767d6c4b
+    [authToken] => AUTH9de6e74e0db4473c9eb3486455c96a68aa67
+    [payType] => I
+)
+
+[2022-07-03 11:38:23.268578] RECEIVE-PARAM: ## 인증결과수신 ## aid:aidf685fa6a0b8847aea99616dda5bee1d7daf79, authToken:AUTHfddf6c56e98943c886b7eb96fd2fa8633417
+[2022-07-03 11:38:23.269137] center_id-PARAM: 01
+[2022-07-03 11:38:23.269317] member_code-PARAM: 0122060063
+[2022-07-03 11:38:23.269493] member_name-PARAM: 박평순
+[2022-07-03 11:38:23.269682] rent_no-PARAM: 
+[2022-07-03 11:38:23.269859] idx-PARAM: 8
+[2022-07-03 11:38:23.270035] PC-PARAM: PC
+[2022-07-03 11:38:23.270209] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:38:23.270399] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:38:23.270581] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c101093e75e
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => (어린이집)축구-(화,목) 16시
+    [goodsCode] => 00300023
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031138231823
+    [signature] => 23fdbb24c8b4454b969136c43d35b1e1da1143b665e758bb823aa0373305dec7
+    [aid] => aidf685fa6a0b8847aea99616dda5bee1d7daf79
+    [authToken] => AUTHfddf6c56e98943c886b7eb96fd2fa8633417
+    [payType] => I
+)
+
+[2022-07-03 11:42:44.032317] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid9b6e6d4085954e6b8bb63cd3aca44a64ed7df, authToken:AUTHf841f4ed1e4d4557b0b5930a6d69ced51c04
+[2022-07-03 11:42:44.032749] center_id-PARAM: 01
+[2022-07-03 11:42:44.032936] member_code-PARAM: 0122060063
+[2022-07-03 11:42:44.033114] member_name-PARAM: 박평순
+[2022-07-03 11:42:44.033291] rent_no-PARAM: 
+[2022-07-03 11:42:44.033486] idx-PARAM: 14
+[2022-07-03 11:42:44.033665] PC-PARAM: PC
+[2022-07-03 11:42:44.033841] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:42:44.034032] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:42:44.034210] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c1020cb9e3b
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 0(가을)숲체험단 초등
+    [goodsCode] => 00300012
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031142449107
+    [signature] => f79aaa76046624b1a21c665a67ceecbe2bb4c78b8b54f4eb03fe5b28f9992789
+    [aid] => aid9b6e6d4085954e6b8bb63cd3aca44a64ed7df
+    [authToken] => AUTHf841f4ed1e4d4557b0b5930a6d69ced51c04
+    [payType] => I
+)
+
+[2022-07-03 11:44:48.210238] RECEIVE-PARAM: ## 인증결과수신 ## aid:aidb8a84fe16a3c49f08016671fa2de65a31ae3a, authToken:AUTHbf9786b66d194127824baf1d308b9e82d881
+[2022-07-03 11:44:48.210749] center_id-PARAM: 01
+[2022-07-03 11:44:48.210934] member_code-PARAM: 0122060063
+[2022-07-03 11:44:48.211114] member_name-PARAM: 박평순
+[2022-07-03 11:44:48.211295] rent_no-PARAM: 
+[2022-07-03 11:44:48.211472] idx-PARAM: 13
+[2022-07-03 11:44:48.211749] PC-PARAM: PC
+[2022-07-03 11:44:48.211975] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:44:48.212209] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:44:48.212471] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c102851d35f
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 0(수)숲체험단 루뻬
+    [goodsCode] => 00300022
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031144485483
+    [signature] => d6ae51814426c6b1c031f3081c95eadc157b3ef4ea6ecac3d415b317213c6978
+    [aid] => aidb8a84fe16a3c49f08016671fa2de65a31ae3a
+    [authToken] => AUTHbf9786b66d194127824baf1d308b9e82d881
+    [payType] => I
+)
+
+[2022-07-03 11:48:30.999894] RECEIVE-PARAM: ## 인증결과수신 ## aid:aide107f08c49e344acafcc0ba71faa83fc5b311, authToken:AUTHe42c249c25b8454cae1a7bf11a01ecdcbd06
+[2022-07-03 11:48:31.000394] center_id-PARAM: 01
+[2022-07-03 11:48:31.000582] member_code-PARAM: 0122060063
+[2022-07-03 11:48:31.000762] member_name-PARAM: 박평순
+[2022-07-03 11:48:31.000940] rent_no-PARAM: 
+[2022-07-03 11:48:31.001117] idx-PARAM: 15
+[2022-07-03 11:48:31.001296] PC-PARAM: PC
+[2022-07-03 11:48:31.001475] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:48:31.001669] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:48:31.001847] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c103680d505
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => (어린이집)축구-(화,목) 16시
+    [goodsCode] => 00300023
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031148312630
+    [signature] => 5e8be0549f05a978f16cc47b7575f292bf983805a578ccb9bbeb9660082d8f66
+    [aid] => aide107f08c49e344acafcc0ba71faa83fc5b311
+    [authToken] => AUTHe42c249c25b8454cae1a7bf11a01ecdcbd06
+    [payType] => I
+)
+
+[2022-07-03 11:50:17.929192] RECEIVE-PARAM: ## 인증결과수신 ## aid:aiddadfc5cd23304b19885a69e283dd0ad55e9e7, authToken:AUTH6e3e14789cb8420ab9e432af63226cdebf9c
+[2022-07-03 11:50:17.929556] center_id-PARAM: 01
+[2022-07-03 11:50:17.929745] member_code-PARAM: 0122060063
+[2022-07-03 11:50:17.929925] member_name-PARAM: 박평순
+[2022-07-03 11:50:17.930121] rent_no-PARAM: 
+[2022-07-03 11:50:17.930301] idx-PARAM: 16
+[2022-07-03 11:50:17.930478] PC-PARAM: PC
+[2022-07-03 11:50:17.930665] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:50:17.930863] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:50:17.931040] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c103d493f68
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => (어린이집)축구-(화,목) 16시
+    [goodsCode] => 00300023
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031150179085
+    [signature] => 352d515c90432fe97894be201b7df9b8431415dff925a7f91715eb6e5accebe4
+    [aid] => aiddadfc5cd23304b19885a69e283dd0ad55e9e7
+    [authToken] => AUTH6e3e14789cb8420ab9e432af63226cdebf9c
+    [payType] => I
+)
+
+[2022-07-03 11:58:19.148372] RECEIVE-PARAM: ## 인증결과수신 ## aid:aide1e2cda52f9542339540d8ca24806d8f0980e, authToken:AUTH39ff4d52a1094d7494ea5eef587e4cf45e64
+[2022-07-03 11:58:19.148823] center_id-PARAM: 01
+[2022-07-03 11:58:19.149004] member_code-PARAM: 0122060063
+[2022-07-03 11:58:19.149184] member_name-PARAM: 박평순
+[2022-07-03 11:58:19.149362] rent_no-PARAM: 
+[2022-07-03 11:58:19.149553] idx-PARAM: 17
+[2022-07-03 11:58:19.149728] PC-PARAM: PC
+[2022-07-03 11:58:19.149903] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 11:58:19.150134] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 11:58:19.150312] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c105b46ff01
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => (어린이집)축구-(화,목) 16시
+    [goodsCode] => 00300023
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031158198329
+    [signature] => f4550c55ce3ca29efbad097b6046752926084d83863f8bf8df1a7fa7638dba51
+    [aid] => aide1e2cda52f9542339540d8ca24806d8f0980e
+    [authToken] => AUTH39ff4d52a1094d7494ea5eef587e4cf45e64
+    [payType] => I
+)
+
+[2022-07-03 12:09:12.484882] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid2e26ab116dd4498090ae03fcc4e1b06ffed46, authToken:AUTH1a5c5e9f75bd4cdd8984c3af1dbf2feb69c0
+[2022-07-03 12:09:12.485377] center_id-PARAM: 01
+[2022-07-03 12:09:12.485560] member_code-PARAM: 0122060063
+[2022-07-03 12:09:12.485739] member_name-PARAM: 박평순
+[2022-07-03 12:09:12.485918] rent_no-PARAM: 
+[2022-07-03 12:09:12.486094] idx-PARAM: 18
+[2022-07-03 12:09:12.486269] PC-PARAM: PC
+[2022-07-03 12:09:12.486445] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 12:09:12.486649] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 12:09:12.486838] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c10842781b9
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => (어린이집)축구-(화,목) 16시
+    [goodsCode] => 00300023
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031209127204
+    [signature] => eef78f927406a8e50260935b40ddcd60651bd96ceb0aeb7dc01c6e73b8bb17e7
+    [aid] => aid2e26ab116dd4498090ae03fcc4e1b06ffed46
+    [authToken] => AUTH1a5c5e9f75bd4cdd8984c3af1dbf2feb69c0
+    [payType] => I
+)
+
+[2022-07-03 12:11:25.584233] RECEIVE-PARAM: ## 인증결과수신 ## aid:aida3d5b8486bf8495a96e2fd7c1ed162b330292, authToken:AUTHe9131843d519404fb20c6d97209c7f39b033
+[2022-07-03 12:11:25.584658] center_id-PARAM: 01
+[2022-07-03 12:11:25.584838] member_code-PARAM: 0122060063
+[2022-07-03 12:11:25.585017] member_name-PARAM: 박평순
+[2022-07-03 12:11:25.585193] rent_no-PARAM: 
+[2022-07-03 12:11:25.585368] idx-PARAM: 19
+[2022-07-03 12:11:25.585553] PC-PARAM: PC
+[2022-07-03 12:11:25.585729] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 12:11:25.585919] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 12:11:25.586102] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c108c58f3e1
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 0(가을)숲체험단 초등
+    [goodsCode] => 00300012
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031211255987
+    [signature] => b67e6259c43d7905958f3d93f02ee20788c4e0d4ebda1984353a13d71bd8e083
+    [aid] => aida3d5b8486bf8495a96e2fd7c1ed162b330292
+    [authToken] => AUTHe9131843d519404fb20c6d97209c7f39b033
+    [payType] => I
+)
+
+[2022-07-03 12:18:47.735205] RECEIVE-PARAM: ## 인증결과수신 ## aid:aidac3c0f00cc8c41639916332f7ec402ab47564, authToken:AUTH61e082468321471fbf0f16c259b3d1eea66f
+[2022-07-03 12:18:47.735636] center_id-PARAM: 01
+[2022-07-03 12:18:47.735818] member_code-PARAM: 0122060063
+[2022-07-03 12:18:47.735999] member_name-PARAM: 박평순
+[2022-07-03 12:18:47.736217] rent_no-PARAM: 
+[2022-07-03 12:18:47.736398] idx-PARAM: 20
+[2022-07-03 12:18:47.736575] PC-PARAM: PC
+[2022-07-03 12:18:47.736750] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36 Edg/103.0.1264.37
+[2022-07-03 12:18:47.736985] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 12:18:47.737164] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c10a7fc5152
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 22년 4세 정규새싹
+    [goodsCode] => 00300208
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031218478967
+    [signature] => 0c1031fb2f09ebd9b2c28dd27a8a22faaeec1fcd32efa4a401913d519b98a266
+    [aid] => aidac3c0f00cc8c41639916332f7ec402ab47564
+    [authToken] => AUTH61e082468321471fbf0f16c259b3d1eea66f
+    [payType] => I
+)
+
+[2022-07-03 13:54:22.914440] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid0511ab25d83c47cbb0910c1f3e9767c395e62, authToken:AUTH2cb69a9d452e468193301dbaa574086f0b0d
+[2022-07-03 13:54:22.915040] center_id-PARAM: 01
+[2022-07-03 13:54:22.915240] member_code-PARAM: 0122060063
+[2022-07-03 13:54:22.915432] member_name-PARAM: 박평순
+[2022-07-03 13:54:22.915618] rent_no-PARAM: 
+[2022-07-03 13:54:22.915802] idx-PARAM: 23
+[2022-07-03 13:54:22.916118] PC-PARAM: PC
+[2022-07-03 13:54:22.916308] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.66 Safari/537.36 Edg/103.0.1264.44
+[2022-07-03 13:54:22.916510] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 13:54:22.916692] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c120c618cc6
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 동호회스쿼시B-18시
+    [goodsCode] => 00300029
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031354221542
+    [signature] => 17f46d09326efb92388c3347453b87b966c2af4e5e935bab62a66f7a816fbd0f
+    [aid] => aid0511ab25d83c47cbb0910c1f3e9767c395e62
+    [authToken] => AUTH2cb69a9d452e468193301dbaa574086f0b0d
+    [payType] => I
+)
+
+[2022-07-03 14:01:49.774626] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid46ed214cff684df8bcd240e6654ab889644d9, authToken:AUTHabe4a2de4d4f426e8d7047bf88a2ce2df501
+[2022-07-03 14:01:49.775141] center_id-PARAM: 01
+[2022-07-03 14:01:49.775350] member_code-PARAM: 0122060063
+[2022-07-03 14:01:49.775564] member_name-PARAM: 박평순
+[2022-07-03 14:01:49.775770] rent_no-PARAM: 
+[2022-07-03 14:01:49.775968] idx-PARAM: 22
+[2022-07-03 14:01:49.776157] PC-PARAM: PC
+[2022-07-03 14:01:49.776349] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.66 Safari/537.36 Edg/103.0.1264.44
+[2022-07-03 14:01:49.776560] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 14:01:49.776752] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c1228123b91
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => (어린이집)축구-(화,목) 17시
+    [goodsCode] => 00300010
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031401493478
+    [signature] => 6a8665b76d41acd7111dbb6355b0e62ddd739a0c59187c00102a13436e1fc6b7
+    [aid] => aid46ed214cff684df8bcd240e6654ab889644d9
+    [authToken] => AUTHabe4a2de4d4f426e8d7047bf88a2ce2df501
+    [payType] => I
+)
+
+[2022-07-03 14:14:21.204493] RECEIVE-PARAM: ## 인증결과수신 ## aid:aiddca55071f9254523ab3cb290030c5f01df854, authToken:AUTHc701b9818576426c8754a470aadafe671227
+[2022-07-03 14:14:21.205074] center_id-PARAM: 01
+[2022-07-03 14:14:21.205334] member_code-PARAM: 0122060063
+[2022-07-03 14:14:21.205610] member_name-PARAM: 박평순
+[2022-07-03 14:14:21.205872] rent_no-PARAM: 
+[2022-07-03 14:14:21.206082] idx-PARAM: 25
+[2022-07-03 14:14:21.206287] PC-PARAM: PC
+[2022-07-03 14:14:21.206491] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.66 Safari/537.36 Edg/103.0.1264.44
+[2022-07-03 14:14:21.206714] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 14:14:21.206900] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c1258507984
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 골드연회원B
+    [goodsCode] => 00300008
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031414218025
+    [signature] => 8425b66c4e7529f8ede9a8c1df5520226b08331b3c7f47a25b222c2d97ff10ab
+    [aid] => aiddca55071f9254523ab3cb290030c5f01df854
+    [authToken] => AUTHc701b9818576426c8754a470aadafe671227
+    [payType] => I
+)
+
+[2022-07-03 14:21:37.271339] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid96f6be191c104023ae892b7e2fb90f69c000c, authToken:AUTHce029b8f84544d7a826012e640a6cda4f310
+[2022-07-03 14:21:37.271804] center_id-PARAM: 01
+[2022-07-03 14:21:37.271991] member_code-PARAM: 0122060063
+[2022-07-03 14:21:37.272181] member_name-PARAM: 박평순
+[2022-07-03 14:21:37.272370] rent_no-PARAM: 
+[2022-07-03 14:21:37.272550] idx-PARAM: 24
+[2022-07-03 14:21:37.272727] PC-PARAM: PC
+[2022-07-03 14:21:37.272911] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.66 Safari/537.36 Edg/103.0.1264.44
+[2022-07-03 14:21:37.273110] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 14:21:37.273316] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c127391f8eb
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => (어린이집)축구-(화,목) 17시
+    [goodsCode] => 00300010
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031421376094
+    [signature] => 987a59c55aec1723748d62fa10462cc9227d56bb02e665d025dd662a0e6c9535
+    [aid] => aid96f6be191c104023ae892b7e2fb90f69c000c
+    [authToken] => AUTHce029b8f84544d7a826012e640a6cda4f310
+    [payType] => I
+)
+
+[2022-07-03 14:40:15.475867] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid38fbc936fa7f4151869fe76b0e45c67e5c645, authToken:AUTH2446320094d94b58af161749c419a0ba38fa
+[2022-07-03 14:40:15.476316] center_id-PARAM: 01
+[2022-07-03 14:40:15.476500] member_code-PARAM: 0122060063
+[2022-07-03 14:40:15.476682] member_name-PARAM: 박평순
+[2022-07-03 14:40:15.476865] rent_no-PARAM: 
+[2022-07-03 14:40:15.477055] idx-PARAM: 26
+[2022-07-03 14:40:15.477278] PC-PARAM: PC
+[2022-07-03 14:40:15.477495] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.66 Safari/537.36 Edg/103.0.1264.44
+[2022-07-03 14:40:15.477737] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 14:40:15.477918] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c12b990a639
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 22년 4세 정규
+    [goodsCode] => 00300206
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031440155834
+    [signature] => 4d53c13452025ef8da41afa50d77ca014df13377cb430e8215fbfc71c0a154ee
+    [aid] => aid38fbc936fa7f4151869fe76b0e45c67e5c645
+    [authToken] => AUTH2446320094d94b58af161749c419a0ba38fa
+    [payType] => I
+)
+
+[2022-07-03 14:59:41.393887] RECEIVE-PARAM: ## 인증결과수신 ## aid:, authToken:
+[2022-07-03 14:59:41.394399] center_id-PARAM: 01
+[2022-07-03 14:59:41.394594] member_code-PARAM: 
+[2022-07-03 14:59:41.394782] member_name-PARAM: 
+[2022-07-03 14:59:41.394963] rent_no-PARAM: 
+[2022-07-03 14:59:41.395146] idx-PARAM: 
+[2022-07-03 14:59:41.395326] PC-PARAM: PC
+[2022-07-03 14:59:41.395506] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.66 Safari/537.36 Edg/103.0.1264.44
+[2022-07-03 14:59:41.395716] PAY-API: /v1/payment/pay
+[2022-07-03 14:59:41.395927] PARAM: Array
+(
+    [aid] => 
+    [authToken] => 
+    [amount] => 
+    [payType] => 
+    [timestamp] => 202207031459413810
+    [signature] => 1412f99c2f74f1934f775a3c7ed7aa2a8df598e9f0889ff37dbf2caaac113ed9
+)
+
+[2022-07-03 14:59:41.445905] <br>## 승인요청API 호출 결과 ##<br>resultCode = , resultMessage = 
+[2022-07-03 15:02:44.422692] RECEIVE-PARAM: ## 인증결과수신 ## aid:aidb608f087c0ba4cccbfb4bc4fa2736332b2cc9, authToken:AUTH9b6ada1982e7425ca4b03cb889a928dc93ed
+[2022-07-03 15:02:44.423148] center_id-PARAM: 01
+[2022-07-03 15:02:44.423343] member_code-PARAM: 0122060063
+[2022-07-03 15:02:44.423531] member_name-PARAM: 박평순
+[2022-07-03 15:02:44.423731] rent_no-PARAM: 
+[2022-07-03 15:02:44.423918] idx-PARAM: 25
+[2022-07-03 15:02:44.424103] PC-PARAM: PC
+[2022-07-03 15:02:44.424287] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.66 Safari/537.36 Edg/103.0.1264.44
+[2022-07-03 15:02:44.424486] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 15:02:44.424738] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c130ecaa37f
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 골드연회원B
+    [goodsCode] => 00300008
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031502444658
+    [signature] => e9bfb8d3115c722ea7da46dafee218553243e5b5be6f09bc2c14a18c13e12815
+    [aid] => aidb608f087c0ba4cccbfb4bc4fa2736332b2cc9
+    [authToken] => AUTH9b6ada1982e7425ca4b03cb889a928dc93ed
+    [payType] => V
+)
+
+[2022-07-03 15:05:14.715524] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid5fe36fc7f3634e50a5784685c743148667f89, authToken:AUTH7dfad565794e44849dba0a3a84da8f67ab4f
+[2022-07-03 15:05:14.716104] center_id-PARAM: 01
+[2022-07-03 15:05:14.716316] member_code-PARAM: 0122060063
+[2022-07-03 15:05:14.716537] member_name-PARAM: 박평순
+[2022-07-03 15:05:14.716734] rent_no-PARAM: 
+[2022-07-03 15:05:14.716929] idx-PARAM: 25
+[2022-07-03 15:05:14.717161] PC-PARAM: PC
+[2022-07-03 15:05:14.717365] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.66 Safari/537.36 Edg/103.0.1264.44
+[2022-07-03 15:05:14.717597] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 15:05:14.717803] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c13185988ef
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 골드연회원B
+    [goodsCode] => 00300008
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031505147680
+    [signature] => 3dcc625b849ec28796a8974456bf37d61621f946989cd9d1bd4c55f49fca7696
+    [aid] => aid5fe36fc7f3634e50a5784685c743148667f89
+    [authToken] => AUTH7dfad565794e44849dba0a3a84da8f67ab4f
+    [payType] => V
+)
+
+[2022-07-03 15:07:19.680660] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid8cccf86430444711b282a95a2fdcb771170fb, authToken:AUTH7f2282fc537f4936b71f5a6081c01e2cd5d8
+[2022-07-03 15:07:19.681098] center_id-PARAM: 01
+[2022-07-03 15:07:19.681284] member_code-PARAM: 0122060063
+[2022-07-03 15:07:19.681521] member_name-PARAM: 박평순
+[2022-07-03 15:07:19.681709] rent_no-PARAM: 
+[2022-07-03 15:07:19.681893] idx-PARAM: 25
+[2022-07-03 15:07:19.682103] PC-PARAM: PC
+[2022-07-03 15:07:19.682286] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.66 Safari/537.36 Edg/103.0.1264.44
+[2022-07-03 15:07:19.682496] PAY-API: https://test-api-std.mainpay.co.kr/v1/payment/pay
+[2022-07-03 15:07:19.682680] PARAM: Array
+(
+    [version] => V001
+    [mbrNo] => 100011
+    [mbrRefNo] => 10001162c132040e056
+    [paymethod] => CARD
+    [amount] => 1004
+    [goodsName] => 골드연회원B
+    [goodsCode] => 00300008
+    [approvalUrl] => http://112.217.123.82:10001/Noble/pc/_3_approval.php
+    [closeUrl] => http://112.217.123.82:10001/Noble/pc/_3_close.php
+    [customerName] => 박평순
+    [customerEmail] => 
+    [timestamp] => 202207031507199304
+    [signature] => 4db706ccfdbb5fa3e6b7a521966412afc332018cbca9994305ff5f7f348eef7c
+    [aid] => aid8cccf86430444711b282a95a2fdcb771170fb
+    [authToken] => AUTH7f2282fc537f4936b71f5a6081c01e2cd5d8
+    [payType] => V
+)
+

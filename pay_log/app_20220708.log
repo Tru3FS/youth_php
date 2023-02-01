@@ -1,0 +1,20 @@
+[2022-07-08 23:26:33.526043] RECEIVE-PARAM: ## 인증결과수신 ## aid:aid6b52842693c04a59aadb9c26c44639044def8, authToken:AUTH6e26b6b831bd4208b5be2105c3a143229ad5
+[2022-07-08 23:26:33.526819] center_id-PARAM: 01
+[2022-07-08 23:26:33.527054] member_code-PARAM: 
+[2022-07-08 23:26:33.527241] member_name-PARAM: 
+[2022-07-08 23:26:33.527425] rent_no-PARAM: 
+[2022-07-08 23:26:33.527604] idx-PARAM: 
+[2022-07-08 23:26:33.527806] PC-PARAM: PC
+[2022-07-08 23:26:33.527986] Browser-PARAM: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.66 Safari/537.36 Edg/103.0.1264.44
+[2022-07-08 23:26:33.533985] PAY-API: /v1/payment/pay
+[2022-07-08 23:26:33.534172] PARAM: Array
+(
+    [aid] => aid6b52842693c04a59aadb9c26c44639044def8
+    [authToken] => AUTH6e26b6b831bd4208b5be2105c3a143229ad5
+    [amount] => 
+    [payType] => I
+    [timestamp] => 202207082326338745
+    [signature] => 6da2f7489499f4a7c78f0443c57a5927be4fa8975cff5d9ac97cbfa7ab029599
+)
+
+[2022-07-08 23:26:33.644547] <br>## 승인요청API 호출 결과 ##<br>resultCode = , resultMessage = 

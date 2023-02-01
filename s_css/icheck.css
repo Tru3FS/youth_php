@@ -1,0 +1,60 @@
+/* iCheck plugin Minimal skin, black
+----------------------------------- */
+.nc-icheck--icheckbox,
+.nc-icheck--iradio {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    background: url(../images/nc-isprite@2x.png) no-repeat;
+    border: none;
+    cursor: pointer;
+	background-size: 23rem 2rem;
+}
+
+.nc-icheck--icheckbox {
+    background-position: 0 0;
+}
+    .nc-icheck--icheckbox.hover {
+        background-position: -2.3rem 0;
+    }
+    .nc-icheck--icheckbox.checked {
+        background-position: -4.6rem 0;
+    }
+    .nc-icheck--icheckbox.disabled {
+        background-position: -6.9rem 0;
+        cursor: default;
+    }
+    .nc-icheck--icheckbox.checked.disabled {
+        background-position: -9.2rem 0;
+    }
+
+.nc-icheck--iradio {
+    background-position: -11.5rem 0;
+}
+    .nc-icheck--iradio.hover {
+        background-position: -13.8rem 0;
+    }
+    .nc-icheck--iradio.checked {
+        background-position: -16.1rem 0;
+    }
+    .nc-icheck--iradio.disabled {
+        background-position: -18.4rem 0;
+        cursor: default;
+    }
+    .nc-icheck--iradio.checked.disabled {
+        background-position: -20.7rem 0;
+    }
+
+/* HiDPI support */
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
+    .nc-icheck--icheckbox,
+    .nc-icheck--iradio {
+        background-image: url(../images/nc-isprite@2x.png);
+        -webkit-background-size: 23rem 2rem;
+        background-size: 23rem 2rem;
+    }
+}

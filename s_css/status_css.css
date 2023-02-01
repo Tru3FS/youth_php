@@ -1,0 +1,264 @@
+#nc_program_list{
+
+min-height:600px;
+
+}
+
+.rank_list2 table{
+  width:100%;
+}
+.rank_list2 td, .rank_list2 td > a, .rank_list2 td > div {
+    height: 70px;width:100%;
+}
+.rank_list2 td{
+    height: 70px;
+    padding-right: 0px;
+    border-top: 1px solid #f3f3f3;    float: none;padding-left: 15px;vertical-align: middle;
+    display: table-cell;
+}
+.rank_list2 tr{
+display:none;
+}
+
+.rank_list2 tr.cc, .rank_list2 tr.tt{
+display:block;display: table;
+width: 100%;
+}
+.rank_list2 tr.cc{
+height:110px;
+    float: left;
+    width: 100%;    
+	position: relative;display: table;
+}
+.rank_list2 tr.cc.tt{
+height:180px;
+    float: left;
+    width: 100%;    
+	position: relative;display: table;
+}
+.rank_list2 tr.pp{
+    height: 250px;
+    float: left;
+    width: 100%;    
+	position: relative;display: table;
+}
+.rank_list2 tr.ee{
+    height: 320px;
+    float: left;
+    width: 100%;
+	    position: relative;display: table;
+}
+
+.rank_list2  tr.tt td,.rank_list2  tr.pp td,.rank_list2  tr.ee td {
+    height: 100%;
+    padding-right: 0px;padding-left: 15px;
+    border-top: 1px solid #f3f3f3;
+    float: none;
+    vertical-align: middle;display: table-cell;
+}
+
+.record_table tr.cc {
+    visibility: visible;
+}
+
+.btn_wrap .note {
+    margin-top: 0;
+    text-align: right;
+    font-size: 14px;
+    color: #999;
+    letter-spacing: -0.05em;
+  display: block;
+}
+.tableWrap .note {
+    display: block;
+}
+.record_table tr.xx td {
+    background-color: #f9f9f9;height: 40px;padding: 10px 8px;
+}
+
+@media (min-width: 768px){
+
+}
+@media screen and (max-width:1024px){
+.rank_list2 td {
+
+    padding-right: 2px;
+
+}
+}
+
+.rank_list2 tr.cc{
+height:80px;
+    float: left;
+    width: 100%;    
+	position: relative;display: table;
+}
+.rank_list2 tr.cc.tt{
+height:120px;
+    float: left;
+    width: 100%;    
+	position: relative;display: table;
+}
+.rank_list2 tr.pp{
+    height: 160px;
+    float: left;
+    width: 100%;    
+	position: relative;display: table;
+}
+.rank_list2 tr.ee{
+    height: 200px;
+    float: left;
+    width: 100%;
+	    position: relative;display: table;
+}
+.record_table td {
+    height: 40px !important;
+    padding: 1px 8px;
+}
+@media screen and (max-width: 786px){
+.record_table tr.xx td {
+    background-color: #f9f9f9;
+    height: 40px;
+    padding: 10px 8px;font-size: 12px;
+}
+}
+.record_table tr{
+    visibility: hidden;
+}
+.record_table tr.cc{
+    visibility: visible;
+}
+.record_table #record_header{
+    visibility: visible;
+}
+.record_table .cc{
+    visibility: visible;
+}
+
+.record_table tr.pp td.cc{
+    height: 70px !important;
+}
+.record_table tr.pp td.cnc{
+   
+}
+.record_table tr.cc.pp td.cnc.cc {
+    height: 70px !important;
+}
+
+.record_table tr.pp td:first-child{
+   
+ 
+}
+.record_table tr.pp td:nth-child(2),.record_table tr.pp td:nth-child(3),.record_table tr.pp td:nth-child(4),.record_table tr.pp td:nth-child(5){
+   
+    
+
+}
+.record_table tr.pp td:nth-child(6),.record_table tr.pp td:nth-child(7),.record_table tr.pp td:nth-child(8),.record_table tr.pp td:nth-child(9),.record_table tr.pp td:nth-child(10){
+   
+    height: 70px !important;
+
+}
+.progress-bar-holder{
+        width: 100%;
+        border:0px solid #ccc;
+        padding: 0;
+         -webkit-border-radius: 13px;
+        -moz-border-radius: 13px;
+        border-radius: 13px;
+		height: 18px;position: relative;
+		background: #f6f6f6; border-radius: 13px;
+      }
+      .progress-bar{
+        height:18px;
+        text-align: right;
+        background:#27b4c5;
+        width: 0px;
+        padding: 0px;
+		-webkit-border-radius: 13px;
+        -moz-border-radius: 13px;
+        border-radius: 13px;
+		    float: left;background-image: linear-gradient( -45deg,#00a0af,#00c0ca, #008b9c,#28708b,#285f74, #22404d,#285f74,#28708b,#008b9c,#00c0ca,#00a0af) !important;    background-size: 1000%;box-shadow: 0 2px 5px rgb(50 50 50 / 10%);
+      }
+
+.progress-bar.end {
+    height: 18px;
+    text-align: right;
+    background: #27b4c5;
+    width: 0px;
+    padding: 0px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    float: left;
+    background-image: linear-gradient( -45deg,#00a0af,#00c0ca, #008b9c,#28708b,#285f74, #22404d,#285f74,#28708b,#008b9c,#00c0ca,#00a0af) !important;
+    background-size: 1000%;
+    box-shadow: 0 2px 5px rgb(50 50 50 / 10%);
+}
+
+
+.progress-bar span{
+       /* margin-right: 10px; */
+    /* margin-top: 5px; */
+    font-size: 11px;
+    color: rgb(35, 31, 32);
+    /* height: 15px; */
+    line-height:2;
+    vertical-align: middle;
+    position: absolute;
+    z-index: 10;
+    right: 18px;
+	left:auto;
+    letter-spacing: 0.04em;
+
+      }
+ .progress-bar-holder span.t_left{
+       /* margin-right: 10px; */
+    /* margin-top: 5px; */
+    font-size: 10px;
+    color: #fff;
+    /* height: 15px; */
+    line-height:1.75;
+    vertical-align: middle;
+    position: absolute;
+    z-index: 10;float:left;
+    left: 8px;
+	float:left;
+	    right: auto;
+
+    letter-spacing: 0.04em;
+ 
+      }
+	  
+ .progress-bar-holder span.t_right{
+       /* margin-right: 10px; */
+    /* margin-top: 5px; */
+    font-size: 10px;
+    color: rgb(35, 31, 32);
+    /* height: 15px; */
+    line-height:1.8;
+    vertical-align: middle;
+    position: absolute;
+    z-index: 10;float:left;
+    right: 8px;
+	    left: auto;
+		float:right;
+    letter-spacing: 0.04em;
+
+      } 
+	  
+ .end .progress-bar span{
+ color:#fff;
+
+}
+.end .progress-bar {
+    background: #e60012;
+}
+.record_rank div.title {
+     height: 61px;
+}
+.status .record_table td {
+    height: 40px !important;
+    padding: 1px 8px;
+}
+
