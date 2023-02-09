@@ -2441,6 +2441,56 @@ function CF_Member_Basket_List_Page ($center_id, $member_code, $member_id, $url,
 
 
 
+function CF_Member_Basket_Card_Check($center_id, $member_code, $member_id,$sales_code,$idx,$url, $ip){
+	global $DBName;
+
+	$sql = "";
+    $sql = $sql."SELECT State ";
+	$sql = $sql."  FROM TB_Basket_Program  ";
+	$sql = $sql." WHERE Center_ID       = :center_id ";
+	$sql = $sql."   AND Sales_Division IN ('003') ";
+	$sql = $sql."   AND Member_Code     = :member_code ";
+	$sql = $sql."   AND Sales_Code      = :sales_code ";
+	$sql = $sql."   AND IDX     = :idx ";
+
+	
+
+    try{
+        $db = new db();
+        $db = $db->connect($DBName);
+
+		$stmt = $db->prepare($sql);
+
+		$stmt->bindParam(':center_id'  , $center_id);
+		$stmt->bindParam(':member_code', $member_code);
+		$stmt->bindParam(':sales_code' , $sales_code);
+		$stmt->bindParam(':idx' , $idx);
+
+
+		$stmt->execute();
+		$data = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        $db = null;
+
+		CF_Web_Log('장바구니상태', '성공 : '.$member_code, $member_id, $url, $ip);
+
+        $r_json = "";
+		$r_json = $r_json.'{';
+        $r_json = $r_json.'"Result": {"ResultCode": 0, "ResultMsg": "null"},';
+		$r_json = $r_json.'"ResultData1":'.json_encode($data).'';
+		$r_json = $r_json.'}';
+		return $r_json;
+
+    }catch(Exception $e){
+		$db = null;
+		CF_Web_Log('장바구니상태', '장바구니상태조회실패 : '.$e->getMessage(), $member_id, $url, $ip);
+		return '{"Result": {"ResultCode": -10,"ResultMsg":'.'"'.$e->getMessage().'"'.'}}';
+        
+    }
+};
+
+
+
 function CF_Member_Basket_List2 ($center_id, $member_code, $member_id,$sales_code, $url, $ip){
 	global $DBName;
 

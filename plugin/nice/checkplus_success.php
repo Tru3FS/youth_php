@@ -1,8 +1,18 @@
 <?php
-include_once('./_common.php');
-include_once('./checkplus.config.php');
 
+
+define('_certify_', true);
+
+
+$center_id = $_REQUEST["center_id"];		// 암호화된 결과 데이타
+
+$_SESSION["center_id"]=$center_id;
+
+
+include_once('./_common.php');
 include_once(NC_PATH.'/head3.sub.php');
+include_once(NC_NICE_PATH.'/checkplus.config.php');
+
 
 
 $enc_data = $_REQUEST["EncodeData"];		// 암호화된 결과 데이타
@@ -12,10 +22,17 @@ if(base64_encode(base64_decode($enc_data))!=$enc_data) {echo "입력 값 확인�
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
 if ($enc_data != "") {
 
     $plaindata = `$cb_encode_path DEC $sitecode $sitepasswd $enc_data`;		// 암호화된 결과 데이터의 복호화
     //echo "[plaindata]  " . $plaindata . "<br>";
+
+
+
+
 
     if ($plaindata == -1){
         $returnMsg  = "암/복호화 시스템 오류";
@@ -46,9 +63,14 @@ if ($enc_data != "") {
         $mobileno = GetValue($plaindata , "MOBILE_NO");
         $mobileco = GetValue($plaindata , "MOBILE_CO");
 
+       
+        //echo  $_SESSION["REQ_SEQ"]."<br>";
+
+
         if(strcmp($_SESSION["REQ_SEQ"], $requestnumber) != 0)
         {
-            echo "세션값이 다릅니다. 올바른 경로로 접근하시기 바랍니다.<br>";
+            //echo "세션값이 다릅니다. 올바른 경로로 접근하시기 바랍니다.";
+            $returnMsg  = "세션값이 다릅니다. 올바른 경로로 접근하시기 바랍니다.";
             $requestnumber = "";
             $responsenumber = "";
             $authtype = "";
@@ -88,6 +110,7 @@ $ip=get_real_client_ip();
 
 $connect_db = mysqli_connect(NC_MYSQL_HOST, NC_MYSQL_USER, NC_MYSQL_PASSWORD, NC_MYSQL_DB,'3306');
 
+
 sql_set_charset('utf8', $connect_db);
 
 	mysqli_autocommit($connect_db, FALSE);
@@ -104,9 +127,13 @@ if(mysqli_query($connect_db, $sql)){
 	mysqli_close($connect_db);
 
 
+
+
+
+
 if (get_session('child')==''){
     // 중복정보 체크
-    $sql = " select Web_ID, Ins_Date from TB_Member where Web_ID <> '{$member['Web_ID']}' and Dupinfo = '{$mb_dupinfo}' ";
+    $sql = " select Web_ID, Ins_Date from TB_Member where Member_Name =  '$mb_name' and IFNULL(Web_ID, '') <> '' and Web_ID <> '{$member['Web_ID']}' and Dupinfo = '{$mb_dupinfo}' ";
     $row = sql_fetch($sql);
     if ($row['Web_ID']) {
 
@@ -141,7 +168,7 @@ $(function() {
                   	                            is_confirm : false,
 					                            on_confirm : function(){
                                                         self.close();
-                                                        $opener.location.href="../../s_member/login.php";
+                                                        $opener.location.href="../../s_member/login.php?center_id=<?php echo get_session('center_id');?>";
 									 
                                                        												
                             
@@ -186,7 +213,15 @@ $(function() {
 ?>
 <script>
 $(function() {
-    var $opener = window.opener;
+    var $opener;
+    var is_mobile = false;
+
+    if( ( navigator.userAgent.indexOf("Android") > - 1 || navigator.userAgent.indexOf("iPhone") > - 1 ) ) { // 스마트폰인 경우
+        $opener = window.parent;
+        is_mobile = true;
+    } else {
+        $opener = window.opener;
+    }
 
     //$opener.$("input[name=cert_type]").val("<?php echo $cert_type; ?>");
     //$opener.$("input[name=mb_name]").val("<?php echo $mb_name; ?>").attr("readonly", true);
@@ -201,16 +236,23 @@ $(function() {
                                                 cancel : '아니오',
                   	                            is_confirm : true,
 					                            on_confirm : function(){
-                                                        self.close();
-                                                        rsult += "<form name='form1' method='post' action='<?php echo NC_MEMBER_URL;?>/m_join_step_01.php' target='window.opener'>";
+
+
+
+                                                        var f= document.forms.form1;
+													    opener.name = "parentPage"; //유니크한 이름이어야 합니다.
+                                           
+                                                        
+                                                        rsult += "<form name='form1' method='post' action='../../s_member/m_join_step_01.php' target='"+opener.name+"'>";
 														rsult += "<input type='hidden' name='cert_type' value='<?php echo $cert_type; ?>'>";	
 		                                                rsult += "<input type='hidden' name='mb_name' value='<?php echo $mb_name; ?>'>";	
 		                                                rsult += "<input type='hidden' name='mb_hp' value='<?php echo $phone_no; ?>'>";	
 														rsult += "<input type='hidden' name='cert_no' value='<?php echo $md5_cert_no; ?>'>";	
+														rsult += "<input type='hidden' name='center_id' value='<?php echo $center_id; ?>'>";
 					                                    rsult += "</form>"; 	 
 									 
                                                         $(rsult).appendTo('body').submit();
-														
+														self.close();
                             
                                                  }, on_cancel : function(){
                                                          self.close();
@@ -261,7 +303,18 @@ $(function() {
 ?>
 <script>
 $(function() {
-    var $opener = window.opener;
+ 
+
+    var $opener;
+    var is_mobile = false;
+
+    if( ( navigator.userAgent.indexOf("Android") > - 1 || navigator.userAgent.indexOf("iPhone") > - 1 ) ) { // 스마트폰인 경우
+        $opener = window.opener;
+        is_mobile = true;
+    } else {
+        $opener = window.opener;
+    }
+
 
     //$opener.$("input[name=cert_type]").val("<?php echo $cert_type; ?>");
     //$opener.$("input[name=mb_name]").val("<?php echo $mb_name; ?>").attr("readonly", true);
@@ -276,16 +329,22 @@ $(function() {
                                                 cancel : '아니오',
                   	                            is_confirm : true,
 					                            on_confirm : function(){
-                                                        self.close();
-                                                        rsult += "<form name='form1' method='post' action='<?php echo NC_MEMBER_URL;?>/m_join_step_01.php' target='window.opener'>";
+                                                        
+
+                                                      var f= document.forms.form1;
+													    opener.name = "parentPage"; 
+                                                  
+
+                                                        rsult += "<form name='form1' method='post' action='../../s_member/m_join_step_01.php' target='"+opener.name+"'>";
 														rsult += "<input type='hidden' name='cert_type' value='<?php echo $cert_type; ?>'>";	
 		                                                rsult += "<input type='hidden' name='mb_name' value='<?php echo $mb_name; ?>'>";	
 		                                                rsult += "<input type='hidden' name='mb_hp' value='<?php echo $phone_no; ?>'>";	
 														rsult += "<input type='hidden' name='cert_no' value='<?php echo $md5_cert_no; ?>'>";	
-					                                    rsult += "</form>"; 	 
+														rsult += "<input type='hidden' name='center_id' value='<?php echo $center_id; ?>'>";
+													    rsult += "</form>"; 	 
 									 
                                                         $(rsult).appendTo('body').submit();
-														
+														window.close();
                             
                                                  }, on_cancel : function(){
                                                          self.close();
@@ -311,7 +370,7 @@ $(function() {
 } else {
 ?>
 <script>
-alert('<?php echo $returnMsg;?>');
+alert("<?php echo $returnMsg;?>");
 self.close();
 </script>
 <?php

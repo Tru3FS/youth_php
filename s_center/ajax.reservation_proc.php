@@ -50,7 +50,7 @@ if($json_array['Result']['ResultCode'] != 0){
 			 	 
 			 
 	     if (is_array($val)){
-		$len = count($val);
+			$len = count($val);
 
        
         
@@ -82,24 +82,22 @@ if($json_array['Result']['ResultCode'] != 0){
 		$event_code=$val['Event_Code'];
         
 
-if($first_start_day_yn=="N"){
+		if($first_start_day_yn=="N"){
 
-      if($special_start_date == '00000000' || $special_start_date == ''){
-		  $start_date=$sdate;
-		  $end_date = date("Ymd",strtotime("$s_date +$monthqty months"));
-		  $month_qty=$monthqty;
-	  }
-     //echo  $start_date;
-	 //echo  $end_date;
+			 // if($special_start_date == '00000000' || $special_start_date == ''){
+			//	  $start_date=$sdate;
+			//	  $end_date = date("Ymd",strtotime("$s_date +$monthqty months"));
+			//	  $month_qty=$monthqty;
+			//  }
+			 //echo  $start_date;
+			 //echo  $end_date;
+			 $month_qty=$val['Month_Qty'];
 
 
-}else{
+		}else{
+			$month_qty=$val['Month_Qty'];
 
-		 //$start_date=$val['Start_Date'];
-	     //$end_date=$val['End_Date'];
-		 $month_qty=$val['Month_Qty'];
-
-}
+		}
 
 
 

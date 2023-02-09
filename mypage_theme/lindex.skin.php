@@ -164,7 +164,7 @@ background: #27b4c5;
 }
 html.desktop .my_lecture_btns .my_lecture_btn.my_lecture_link.send{
 background: #f4811f;border: 1px solid #f4811f;
-width: auto;
+width: 50%;
 }
 
 @media (max-width: 768px){
@@ -460,7 +460,9 @@ if ($totalcount=='0'){
 <form name="lecture_list"  id="lecture_list" method="post" >
 
  <div class="my_lecture_list my_lecture_list_row">
-
+<input type='hidden' id="d_count" name="d_count" value="<?php echo $total_countd;?>">
+<input type='hidden' id="e_count" name="e_count" value="<?php echo $total_counte;?>">
+<input type='hidden' id="c_count" name="c_count" value="<?php echo $total_countc;?>">
 <?php
 
 
@@ -582,9 +584,7 @@ $s_class="xcancel";
  }		
                     
        ?>                 
-<input type='hidden' id="d_count" name="d_count" value="<?php echo $total_countd;?>">
-<input type='hidden' id="e_count" name="e_count" value="<?php echo $total_counte;?>">
-<input type='hidden' id="c_count" name="c_count" value="<?php echo $total_countc;?>">
+
 
                         <div class="my_lecture_item my_lecture_item_first" style="visibility: inherit; opacity: 1;">
 
@@ -603,11 +603,11 @@ $s_class="xcancel";
                             </div>                            
 							                 <div class="my_lecture_btns my_lecture_btns_two <?php if($state=='001'){?>three<?php }?>">
                                              <?php if(($state=='001') && ($state=='002')){?>
-											 <a href="javascript:void(0);" class="my_lecture_btn my_lecture_detail" onclick="goLink('<?php echo $page;?>','<?php echo $val['Center_ID'];?>','<?php echo $idx;?>','<?php echo $s_code;?>','<?php echo $state;?>','<?php echo $status;?>');"><span>상세보기</span></a><?php }else{?>
+											 <a href="javascript:void(0);" class="my_lecture_btn my_lecture_detail" onclick="goLink('<?php echo $page;?>','<?php echo $val['Center_ID'];?>','<?php echo $idx;?>','<?php echo $s_code;?>','<?php echo $state;?>','<?php echo $status;?>','<?php echo $trs_no;?>');"><span>상세보기</span></a><?php }else{?>
 											  <?php if(NC_IS_MOBILE) {?>
-											 <a href="javascript:void(0);" class="my_lecture_btn my_lecture_detail" onclick="goLink('<?php echo $page;?>','<?php echo $val['Center_ID'];?>','<?php echo $idx;?>','<?php echo $s_code;?>','<?php echo get_session('m_code');?>','<?php echo $state;?>','<?php echo $status;?>');"><span>상세보기</span></a> 
+											 <a href="javascript:void(0);" class="my_lecture_btn my_lecture_detail" onclick="goLink('<?php echo $page;?>','<?php echo $val['Center_ID'];?>','<?php echo $idx;?>','<?php echo $s_code;?>','<?php echo get_session('m_code');?>','<?php echo $state;?>','<?php echo $status;?>','<?php echo $trs_no;?>');"><span>상세보기</span></a> 
 											 <?php }else{?>
-                                             <a href="javascript:void(0);" class="my_lecture_btn my_lecture_detail" onclick="goLink('<?php echo $page;?>','<?php echo $val['Center_ID'];?>','<?php echo $idx;?>','<?php echo $s_code;?>','<?php echo get_session('m_code');?>','<?php echo $state;?>','<?php echo $status;?>');"><span>상세보기</span></a> 
+                                             <a href="javascript:void(0);" class="my_lecture_btn my_lecture_detail" onclick="goLink('<?php echo $page;?>','<?php echo $val['Center_ID'];?>','<?php echo $idx;?>','<?php echo $s_code;?>','<?php echo get_session('m_code');?>','<?php echo $state;?>','<?php echo $status;?>','<?php echo $trs_no;?>');"><span>상세보기</span></a> 
 											 <?php }?>
 											 
 											 <?php }?>
@@ -755,7 +755,7 @@ $s_class="xcancel";
 <input type="hidden" name="member_code" id="member_code">
 <input type="hidden" name="state" id="state">
 <input type="hidden" name="status" id="status">
-
+<input type="hidden" name="trs_no" id="trs_no">
 </form>
 
 <style>
@@ -794,7 +794,7 @@ $s_class="xcancel";
 // ================================================================================================
 // 링크
 // ================================================================================================
-function goLink(page,c_id,idx,sales_code,member_code,state,status){
+function goLink(page,c_id,idx,sales_code,member_code,state,status,trs_no){
   
   var frmx = document.getElementById('lecture_list');
 
@@ -806,6 +806,7 @@ frmx.sales_code.value=sales_code;
 frmx.member_code.value=member_code;
 frmx.state.value=state;
 frmx.status.value=status;
+frmx.trs_no.value=trs_no;
 frmx.action="<?php echo NC_MYPAGE_URL;?>/view.php"
 
 
@@ -824,6 +825,8 @@ function goCard(goodsCode,goodsName,Center_ID,idx,goodsAmount,member_code,member
 	//		});
 //return false;
 
+
+/*
  var Frm = document.lecture_list;
    var Amt = goodsAmount;
    var trs_no = Trs_no;
@@ -841,44 +844,167 @@ function goCard(goodsCode,goodsName,Center_ID,idx,goodsAmount,member_code,member
          alert('' + result.errorMsg + '')
       }
    });
- 
+
+*/
+
+
+$.ajax({
+        url:'./ajax.basket_check.php',
+        type: "POST",
+	    accept : "application/json",
+        dataType: "json",
+		data:{'sales_code': scode, 'center_id':Center_ID, 'idx':idx},
+        async: true,
+        cache: false,
+		success: function(data, textStatus) {
+	
+
+
+            if(data.ResultCode != "") {
+                //alert(data.rstate);
+					
+				//console.log(data.rstate);
+				if (data.ResultCode=='001') {
+
+
+
+
+
+  var frm = document.getElementById('lecture_list');
+
+ var Frm = document.lecture_list;
+   var Amt = goodsAmount;
+   var trs_no = Trs_no;
+   //var gName = Frm.GoodsName.value.substring(0, 10);
+
+var goodsName2 = goodsName.substring(0, 35);
+
+
+ AUTHNICE.requestPay({
+      clientId: client_id,
+      method: 'card',
+      orderId: '' + trs_no + '',
+      amount: '' + Amt + '',
+      goodsName: '' + goodsName2 + '',
+	  buyerName: '' + member_name + '',
+      returnUrl: '<?php echo $NC_CARD_BURL;?>/response.php?idx='+idx+'&trs_no='+trs_no+'&center_id='+Center_ID  ,
+      fnError: function (result) {
+         alert('' + result.errorMsg + '')
+      }
+   });
+
+
+
+
+						
+	
+
+                }else{
+
+
+         if (data.ResultCode=='004') {
+
+		     	NC.alert({
+				title    :  data.Msg,
+				message  : data.ResultMsg,
+				ok       : '예',
+				cancel   : '아니오',
+				button_icon : false,
+				is_confirm : true,
+				on_confirm  : function(){
+               
+
+			    location.href="<?php echo NC_URL; ?>/?center_id=<?php echo $_SESSION['center_id'];?>";
+                
+					return false;
+                   
+
+				},
+               on_cancel  : function(){
+               
+			   location.href="<?php echo NC_MYPAGE_URL; ?>/lindex.php?status=001&center_id=<?php echo $_SESSION['center_id'];?>";
+
+			   
+			    return false;
+                   
+	        
+				},
+			});
+
+		 }else{
+
+
+
+         	NC.alert({
+				title    :  data.Msg,
+				message  : data.ResultMsg,
+				ok       : '예',
+				cancel   : '아니오',
+				button_icon : false,
+				is_confirm : false,
+				on_confirm  : function(){
+               
+               
+
+
+              if (data.ResultCode=='002') {
+
+	             location.href="<?php echo NC_MYPAGE_URL; ?>/lindex.php?status=002&center_id=<?php echo $_SESSION['center_id'];?>";
+                   
+			  }else if (data.ResultCode=='005' || data.ResultCode=='006') {
+
+			  
+
+                 location.href="<?php echo NC_MYPAGE_URL; ?>/lindex.php?status=003&center_id=<?php echo $_SESSION['center_id'];?>";
+
+			  }else if (data.ResultCode=='003' || data.ResultCode=='009') {
+
+			  
+
+                 location.href="<?php echo NC_MYPAGE_URL; ?>/lindex.php?status=001&center_id=<?php echo $_SESSION['center_id'];?>";
+
+			  }
+                
+
+
+					return false;
+                   
+
+				},
+               on_cancel  : function(){
+               
+	        
+				},
+			});
+
+
+
+
+
+		 }
+
+
+
+				}
+
+
+          
+
+     
+
+ }
+
+
+        },error:function(request, status,error){
+		 // setTimeout(function(){isAjaxing = false;},10000);	
+		}
+    });
+
 }
 
 
 </script>
-<!--
-<script>
-    function goLink(page,c_id,idx,sales_code,member_code,state,status) {
-        var form = document.getElementById("lecture_list");
-        var parm = new Array();
-        var input = new Array();
 
-        form.action ="./view.php";
-        form.method = "post";
-
-
-        parm.push( ['page', page] );
-        parm.push( ['c_id', c_id] );
-        parm.push( ['idx', idx] );
-		parm.push( ['sales_code', sales_code] );
-		parm.push( ['member_code', member_code] );
-		parm.push( ['state', state] );
-	    parm.push( ['status', status] );
-
-
-        for (var i = 0; i < parm.length; i++) {
-            input[i] = document.createElement("input");
-            input[i].setAttribute("type", "hidden");
-            input[i].setAttribute('name', parm[i][0]);
-            input[i].setAttribute("value", parm[i][1]);
-            form.appendChild(input[i]);
-        }
-        document.body.appendChild(form);
-        form.submit();
-    }
-</script>
-
--->
 
 
 <?php
@@ -1781,7 +1907,26 @@ function ajaxJSON(url,data,fn_success,fn_error){
 }
 
 
+function goLink(page,c_id,idx,sales_code,member_code,state,status,trs_no){
+  
+  var frmx = document.getElementById('lecture_list');
 
+
+frmx.page.value=page;
+frmx.c_id.value=c_id;
+frmx.idx.value=idx;
+frmx.sales_code.value=sales_code;
+frmx.member_code.value=member_code;
+frmx.state.value=state;
+frmx.status.value=status;
+frmx.trs_no.value=trs_no;
+frmx.action="<?php echo NC_MYPAGE_URL;?>/view.php"
+
+
+frmx.submit();
+
+
+}
 
 
  var READY_API_URL = "<?=$READY_API_URL?>";
@@ -1993,6 +2138,30 @@ $.ajax({
 
 <?php }else{?>
 
+console.log('2');
+
+
+$.ajax({
+        url:'./ajax.basket_check.php',
+        type: "POST",
+	    accept : "application/json",
+        dataType: "json",
+		data:{'sales_code': scode, 'center_id':Center_ID, 'idx':idx},
+        async: true,
+        cache: false,
+		success: function(data, textStatus) {
+	
+
+
+            if(data.ResultCode != "") {
+                //alert(data.rstate);
+					
+				//console.log(data.rstate);
+				if (data.ResultCode=='001') {
+
+
+
+
 
   var frm = document.getElementById('lecture_list');
 
@@ -2001,18 +2170,131 @@ $.ajax({
    var trs_no = Trs_no;
    //var gName = Frm.GoodsName.value.substring(0, 10);
 
+	var goodsName2 = goodsName.substring(0, 35);
+
  AUTHNICE.requestPay({
       clientId: client_id,
       method: 'card',
       orderId: '' + trs_no + '',
       amount: '' + Amt + '',
-      goodsName: '' + goodsName + '',
+      goodsName: '' + goodsName2 + '',
 	  buyerName: '' + member_name + '',
       returnUrl: '<?php echo $NC_CARD_BURL;?>/response.php?idx='+idx+'&trs_no='+trs_no+'&center_id='+Center_ID  ,
       fnError: function (result) {
          alert('' + result.errorMsg + '')
       }
    });
+
+
+
+
+						
+	
+
+                }else{
+
+
+         if (data.ResultCode=='004') {
+
+		     	NC.alert({
+				title    :  data.Msg,
+				message  : data.ResultMsg,
+				ok       : '예',
+				cancel   : '아니오',
+				button_icon : false,
+				is_confirm : true,
+				on_confirm  : function(){
+               
+
+			    location.href="<?php echo NC_URL; ?>/?center_id=<?php echo $_SESSION['center_id'];?>";
+                
+					return false;
+                   
+
+				},
+               on_cancel  : function(){
+               
+			   location.href="<?php echo NC_MYPAGE_URL; ?>/lindex.php?status=001&center_id=<?php echo $_SESSION['center_id'];?>";
+
+			   
+			    return false;
+                   
+	        
+				},
+			});
+
+		 }else{
+
+
+
+         	NC.alert({
+				title    :  data.Msg,
+				message  : data.ResultMsg,
+				ok       : '예',
+				cancel   : '아니오',
+				button_icon : false,
+				is_confirm : false,
+				on_confirm  : function(){
+               
+               
+
+
+              if (data.ResultCode=='002') {
+
+	             location.href="<?php echo NC_MYPAGE_URL; ?>/lindex.php?status=002&center_id=<?php echo $_SESSION['center_id'];?>";
+                   
+			  }else if (data.ResultCode=='005' || data.ResultCode=='006') {
+
+			  
+
+                 location.href="<?php echo NC_MYPAGE_URL; ?>/lindex.php?status=003&center_id=<?php echo $_SESSION['center_id'];?>";
+
+			  }else if (data.ResultCode=='003' || data.ResultCode=='009') {
+
+			  
+
+                 location.href="<?php echo NC_MYPAGE_URL; ?>/lindex.php?status=001&center_id=<?php echo $_SESSION['center_id'];?>";
+
+			  }
+                
+
+
+					return false;
+                   
+
+				},
+               on_cancel  : function(){
+               
+	        
+				},
+			});
+
+
+
+
+
+		 }
+
+
+
+				}
+
+
+          
+
+     
+
+ }
+
+
+        },error:function(request, status,error){
+		 // setTimeout(function(){isAjaxing = false;},10000);	
+		}
+    });
+
+
+
+
 
 
 <?php }?>
@@ -2026,51 +2308,6 @@ $.ajax({
 
 
 	
-	/* 재수강 결제 팝업이 닫혔을 경우 호출*/
-	function mainpay_close_event() {
-		//alert("결제창이 닫혔습니다.");
-
-	 $.ajax({
-		 url:'./ajax.basket_Del.php',
-		 type: "POST",
-		 data: {idx : $("#insert_idx").val()},
-		 dataType: "json",
-		 async: false,
-		 cache: false,
-		 success: function(res, textStatus) {
-		
-		if(res.ResultCode != "") {
-		
-		if ( res.ResultCode=='2' ) {
-			
-			//NC.alert(""+res.error+"");
-			
-			return false;
-			
-		    }else if ( res.ResultCode=='1' ) {
-			
-		 			
-			
-		}
-
-
-        } 		
-		
-		
-		 },error:function(request,status,error) {
-		  
-	  	}, complete : function(data) {
-                   //실패했어도 완료가 되었을 때 처리
-		
-    	}	
-    });	 
-
-
-
-       return false;
-       location.href="<?php echo $nowurl;?>";
-	   window.close();	
-	}
 <?php }else{?>
 
 

@@ -477,15 +477,10 @@ $s_tag = 'Y';
                                      
                                                 <ul class="program_wrap__info-desc">
                                                     <li><span>강습장소</span><p><?php echo $lecture_place;?></p></li> 
-                                                     <li><span>강습기간</span><p> <?php if($first_start_day_yn=="N"){?><?php echo $monthqty2;?>개월<?php }else{?><?php echo $s_date1;?>-<?php echo $s_date2;?>-<?php echo $s_date3;?>~<?php echo $e_date1;?>-<?php echo $e_date2;?>-<?php echo $e_date3;?>(<?php echo $monthqty2;?>개월)<?php }?></p></li>                                                      
+                                                     <li><span>강습기간</span><p> <?php if($first_start_day_yn=="N"){?><?php echo $s_date1;?>-<?php echo $s_date2;?>-<?php echo $s_date3;?>~<?php echo $e_date1;?>-<?php echo $e_date2;?>-<?php echo $e_date3;?>(<?php echo $monthqty2;?>개월)<?php }else{?><?php echo $s_date1;?>-<?php echo $s_date2;?>-<?php echo $s_date3;?>~<?php echo $e_date1;?>-<?php echo $e_date2;?>-<?php echo $e_date3;?>(<?php echo $monthqty2;?>개월)<?php }?></p></li>                                                      
 													 <li><span>강습시간</span><p><?php echo $week_name;?> / <?php echo $s_time1;?>:<?php echo $s_time2;?> ~ <?php echo $e_time1;?>:<?php echo $e_time2;?></p></li>            
 													 <li><span>수강요금</span><p>₩<?php echo number_format($unitprice);?></p></li>            
 													 <li><span>접수기간</span><p><?php echo $s_txt2;?></p></li>  
-													 <?php if($first_start_day_yn=="N"  && $state_idx=="3"){?><li><span>날짜선택</span><p class="date"><input type="date" name="sdate" class="nc_frm__field nc_frm__field-date" id="sdate"  placeholder="<?php echo $p_startdate;?>" value="<?php echo $p_startdate;?>" readonly="readonly"  /></p></li>
-													 <div class="ngrayBox">
-			                                         <p class="txt">시작일자를 선택할 수 있습니다.</p>
-		                                             </div>
-													<?php }?>
 													<!-- <?php if($state_idx!="3"){?> <li><span>접수상태</span><p><?php echo $state_txt;?> </p></li>  <?php }?>-->
 													 </ul>
 

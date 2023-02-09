@@ -420,14 +420,14 @@ $sclass="gry";
                     <caption>강좌</caption>
                     <colgroup>
      
+            <col width="22%">
+			<col width="7%">
+            <col width="7%">
+            <col width="10%">
+            <col width="10%">
             <col width="8%">
-			 <col width="8%">
-            <col width="8%">
-            <col width="12%">
-            <col width="18%">
-            <col width="8%">
-            <col width="*">
-			 <col width="8%">
+            <col width="10%">
+			<col width="8%">
             <col width="10%">
             <col width="8%">
           </colgroup>

@@ -4150,7 +4150,7 @@ html.mobile .nc_program_select_pro.three {
 .record_bx .rank_player2 ~ .rank_player2{border-top:1px solid #f1f1f1}
 .record_bx:before{display:block;height:1px;margin:0 -1px;background:#034EA2;content:''}
 .record_bx .link_area{position:absolute;top:0;left:0;right:0;bottom:0;z-index:30}
-.record_rank{position:relative;z-index:10;width:159px;background:#fff;border-right:1px solid #e8e9e9}
+.record_rank{position:relative;z-index:10;width:200px;background:#fff;border-right:1px solid #e8e9e9}
 .record_rank div.title{overflow:hidden;display:table;height:60px;padding-top:0px;padding-left:14px;font-weight:normal;font-size:15px;table-layout:fixed}
 .record_rank div.title b{display:table-cell;height:100%;vertical-align:middle;font-weight:500;line-height:1.3em}
 .record_rank div.title b span{color:#034EA2}
@@ -4207,7 +4207,7 @@ html.ios .rank_list2 .player{margin-top:0px;color:#000;font-size:12px;-webkit-li
 
 .rank_list2 .team{color:#888;font-size:10px;-webkit-line-clamp:1}
 .rank_list2 .team:only-child{color:#000;font-size:12px;-webkit-line-clamp:2}
-.record_table{overflow:hidden;padding-left:159px;box-sizing:border-box;-webkit-box-sizing:border-box}
+.record_table{overflow:hidden;padding-left:200px;box-sizing:border-box;-webkit-box-sizing:border-box}
 .record_table table{width:100%;margin-top:-51px;border-right:1px solid #fff;border-spacing:0;border-collapse:separate}
 .record_table table .on{color:#034EA2;background:#fff}
 .record_table caption{height:50px}
@@ -4395,9 +4395,9 @@ font-weight:400;
 	.rank_list2 .team{font-size:12px}
 	.rank_list2 .team:only-child{font-size:14px}
 	.rank_list2 li,.rank_list2 li > a,.rank_list2 li > div{height:70px}
-	.record_rank{width:211px}
+	.record_rank{width:281px}
 	.record_inner{margin-left:0px}
-	.record_table{padding-left:211px}
+	.record_table{padding-left:281px}
 	.record_table th{font-size:14px}
 	.record_table th a{padding:18px 10px 0}
 	.record_table td > span{height:auto;font-size:13px;line-height:1.4;font-weight: 500;}
@@ -4665,7 +4665,9 @@ margin-top: 20px;
 /* 사이드메뉴 */
 
 .sidebar .menu .depth1_list{border-top:0px solid #007081;}
-.sidebar .menu .depth1_item{margin-top:-1px; border-top-width:0px; border-bottom-width:1px; border-style:solid; border-color:#e6e6e6; box-sizing:border-box;}
+.sidebar .menu .depth1_item{margin-top: -1px;
+    border-top-width: 1px;
+    border-bottom-width: 0px;border-style:solid; border-color:#e6e6e6; box-sizing:border-box;}
 .sidebar .menu .depth1_item:first-child{padding-top:1px; border-top-width:0;}
 .sidebar .menu .depth1_text{display:block; position:relative; padding:16px 0px 16px 10px; color:#333; font-size:16px;font-weight:bold; line-height:22px; letter-spacing:-0.025em; text-decoration:none; word-break:keep-all; transition-property:background, color;}
 .sidebar .menu .depth1_text:before{visibility:hidden; opacity:0; display:block; width:100%; height:3px; position:absolute; bottom:-1px; z-index:10; left:0; background-color:#56ae3f; transition-property:visibility, opacity;}
@@ -4684,6 +4686,37 @@ margin-top: 20px;
 .sidebar .menu .depth1_item.active .depth1_text:hover{text-decoration:none;}
 .sidebar .menu .depth1_item.active .depth1_text:hover:before{visibility:hidden; opacity:0;}
 .sidebar .menu .depth1_item.has.active .depth1_text:after{width:17px; height:10px; background-position:left -13px;}
+
+
+
+/* 2차 메뉴 활성화 */
+.sidebar .menu .depth1_item.active{position:relative; z-index:10;    border-bottom-width: 1px;border-top-width: 1px;}
+
+
+.sidebar .menu .depth1_item:first-child.active {
+    position: relative;
+    z-index: 10;
+    border-bottom-width: 1px;
+    border-top-width: 0px;
+}
+
+.sidebar .menu .depth1_item.active .depth1_text{background:#fff; color:#2c7fdf;font-weight:600;margin-top: 0px;}
+.sidebar .menu .depth1_item.active .depth1_text:hover{text-decoration:none;}
+.sidebar .menu .depth1_item.active .depth1_text:hover:before{visibility:hidden; opacity:0;}
+.sidebar .menu .depth1_item.has.active .depth1_text:after{width:17px; height:10px; background-position:left -13px;}
+
+
+.sidebar .menu .depth1_item:last-child.active {
+    position: relative;
+    z-index: 10;
+    border-bottom-width: 0px;
+}
+.sidebar .menu .depth1_item:last-child{
+    position: relative;
+    z-index: 10;
+    border-bottom-width: 0px;
+}
+
 
 /* 3차 메뉴 */
 .sidebar .menu .depth2{transition-property:visibility, opacity, background-color;}

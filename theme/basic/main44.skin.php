@@ -901,7 +901,7 @@ height:120px;
 }
 
 .record_table tr.jone td {
-    height: 51px !important;
+    height: 40px !important;
     padding: 1px 8px;
 }
 
