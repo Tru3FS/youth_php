@@ -285,7 +285,7 @@ for($i=1; $row=sql_fetch_array($ttcount); $i++) {
 	$old_sales_code = $sales_code;
 }
 
-if(is_mobile()=='1'){
+if(NC_IS_MOBILE) {
 $pcount = '5';
 }else{
 $pcount = '10';
@@ -749,7 +749,8 @@ if($first_start_day_yn=='Y'){
 	}
 
 }else{
-
+	if($toymd  >= $Web_New_Start && $toymd <= $Web_New_End){
+		if($toyhm >= $Web_New_STime && $toyhm <= $Web_New_ETime){
 
 			if ($percent_inwon< 100){	
 			$s_txt="<span class='rbb'><span class='cc'>신청</span></span>";	
@@ -768,6 +769,13 @@ if($first_start_day_yn=='Y'){
 			}
 				$s_tag = 'T';
 			}
+		}
+	}else{ 
+		$s_txt="<span class='rbx'>대기</span>";	
+		$s_txt2="<span class='rbf'>접수불가</span>";	
+		$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
+		$s_tag = 'N';	
+	}
 	
 
 }
@@ -832,6 +840,8 @@ $sclass="gry";
 $age_from=$row2['Age_From'];
 $age_to=$row2['Age_To'];
 
+
+
 ?>	
 
  <tr class="<?php echo $row2['Sales_Code'];?> <?php echo $class;?>">
@@ -884,8 +894,8 @@ if($scntc > '0'){
 $age_from=$row3['Age_From'];
 $age_to=$row3['Age_To'];
 
-
  ?>
+
  <tr class="">
              
       <td  class="cc <?php echo $sclass;?>"  style="background-color:<?php echo $sbg;?>;border-left: 1px solid #fff;"><span><?php echo $row3['Target_Name'];?></span></td>
@@ -981,6 +991,7 @@ if($s_tag == 'Y'){
 							</div>
 
 <?php
+
 echo get_paging_ca2($pcount, $page, $total_page, $_SERVER['SCRIPT_NAME'].'?'.$qstr1.'&page=');
 ?>
 

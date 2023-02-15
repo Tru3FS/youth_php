@@ -1,6 +1,8 @@
 <?php
 if (!defined('_SAMSUNG_')) exit; // 개별 페이지 접근 불가
 
+
+
     session_start();
 /*
 ┌ cb_encode_path 변수에 대한 설명  ──────────────────────────────────
@@ -14,6 +16,9 @@ if (!defined('_SAMSUNG_')) exit; // 개별 페이지 접근 불가
 	  3. 확인된 절대경로에 '/모듈명'을 추가로 정의해 주세요.
 └────────────────────────────────────────────────────────────────────
 */
+
+
+
 
 // 실행모듈
 if(PHP_INT_MAX == 2147483647) // 32-bit
@@ -53,9 +58,8 @@ $reqseq = `$cb_encode_path SEQ $sitecode`;
     
 // CheckPlus(본인인증) 처리 후, 결과 데이타를 리턴 받기위해 다음예제와 같이 http부터 입력합니다.
 // 리턴url은 인증 전 인증페이지를 호출하기 전 url과 동일해야 합니다. ex) 인증 전 url : http://www.~ 리턴 url : http://www.~
-$returnurl = NC_NICE_URL."/checkplus_success.php";	// 성공시 이동될 URL
-$errorurl = NC_NICE_URL."/checkplus_fail.php";		// 실패시 이동될 URL
-
+$returnurl = NC_NICE_URL."/checkplus_success.php?center_id=".$center_id;	// 성공시 이동될 URL
+$errorurl = NC_NICE_URL."/checkplus_fail.php?center_id=".$center_id;		// 실패시 이동될 URL
 
 
 

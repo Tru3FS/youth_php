@@ -3628,7 +3628,7 @@ member_search();
      if($("input[name=agree2]").prop('checked')==false && $("input[name=agree3]").prop('checked')==false){
 			
 		 
-			       NC.alert({
+		       NC.alert({
 				title    : '필수항목을 체크해 주세요.',
 				message  : ''
 			});
@@ -3657,6 +3657,7 @@ member_search();
 	     var pageTypeParam = "pageType=register";
          var type=""
 		 var params = "";
+		 var center_id = $("input[name=scenter_id]").val();
 	     var request_url = "";
   
 		if(!cert_confirm()) return false;
@@ -3669,7 +3670,7 @@ member_search();
        var domain = location.origin;
 
 
-        certify_win_open("nice-hp", domain +"/plugin/nice/checkplus_form.php?child=1");
+        certify_win_open("nice-hp", domain +"/plugin/nice/checkplus_form.php?child=1&center_id="+center_id);
         return false;
  
 	
@@ -3682,7 +3683,7 @@ member_search();
      if($("input[name=agree2]").prop('checked')==false && $("input[name=agree3]").prop('checked')==false){
 			
 		 
-			       NC.alert({
+			    NC.alert({
 				title    : '필수항목을 체크해 주세요.',
 				message  : ''
 			});
@@ -3711,6 +3712,7 @@ member_search();
 	     var pageTypeParam = "pageType=register";
          var type=""
 		 var params = "";
+		 var center_id = $("input[name=scenter_id]").val();
 	     var request_url = "";
   
 		if(!cert_confirm()) return false;
@@ -3724,7 +3726,7 @@ member_search();
 	
 
 
-        certify_win_open("nice-hp", domain +"/plugin/nice/checkplus_form.php"+params,'');
+        certify_win_open("nice-hp", domain +"/plugin/nice/checkplus_form.php?center_id="+center_id,'');
         return false;
  
 	   //document.location.href='./m_join_step_01.php';

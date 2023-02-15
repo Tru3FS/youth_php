@@ -36,11 +36,29 @@ for($i=0; $i<$ext_cnt; $i++) {
 }
 //===========================================================================================================
 
+if(defined('_certify_'))  { 
 
+if(!function_exists('session_start_samesite')) {
+		function session_start_samesite($options = array())
+		{
+			$res = @session_start($options);
+			$headers = headers_list();
+			foreach ($headers as $header) {
+				if (!preg_match('~^Set-Cookie: PHPSESSID=~', $header)) continue;
+				$header = preg_replace('~; secure(; HttpOnly)?$~', '', $header) . '; secure; SameSite=None';
+				header($header, false);
+				break;
+			}
+			return $res;
+		}
+	}
 
+	session_start_samesite();
 
-
+}else{
 @session_start();
+
+}
 
 if(defined('_INDEX_'))  { 
 
@@ -704,7 +722,6 @@ $m_theme = 'basic';
 $ntheme = '';
 $nc_theme = '';
 
-
 define('NC_THEME_PATH', get_theme_path($theme));
 define('NC_THEME_URL',  get_theme_url($m_theme));
 
@@ -724,6 +741,5 @@ define('NC_MTHEME_URL',  get_member_theme_url($nc_theme));
 
 define('NC_CTHEME_PATH', get_center_theme_path($ntheme));
 define('NC_CTHEME_URL',  get_center_theme_url($nc_theme));
-
 
 ?>

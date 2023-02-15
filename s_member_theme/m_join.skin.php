@@ -182,7 +182,7 @@ max-width: 28rem;
 					</div>
                       <form class="nc_frm agreement-form" id="nc_frm_agree"  name="nc_frm_agree" method="post" autocomplete="off">
 					  <input type="hidden" name="cert_type" value="">
-					  <input type="hidden" name="scenter_id" value="<?php echo $_SESSION['CENTER_ID'];?>">
+					  <input type="hidden" name="scenter_id" value="<?php echo $_SESSION['center_id'];?>">
                        <ul class="agreement-list">
 					   <li><label class="checkbox"><input type="checkbox" name="chk_all"><i class="icon"></i><div>모두 동의합니다.</div></label></li>
 					   <li><label class="checkbox"><input type="checkbox" data-type="1" name="agree2"><i class="icon"></i><span class="essential">(필수)</span> 이용약관 동의</label><a class="nc_agree_link agree" href="./agree_member.php" id="agree">보기</a></li>

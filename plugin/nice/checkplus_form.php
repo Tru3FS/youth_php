@@ -1,6 +1,10 @@
 <?php
-include_once('./_common.php');
 
+
+define('_certify_', true);
+
+include_once('./_common.php');
+include_once(NC_PATH.'/head3.sub.php');
 
 $ip=get_real_client_ip();
 
@@ -8,13 +12,27 @@ $ip=get_real_client_ip();
 // 금일 인증시도 회수 체크
 certify_count_check($member['Web_ID'], 'hp', $ip);
 
+
+
+
+
+
+$center_id= $_REQUEST["center_id"];
+
 // nice 휴대폰인증파일
 include_once(NC_NICE_PATH.'/checkplus.config.php');
     
 $child = $_REQUEST["child"];		
 set_session('child',    $child);
 
+
+
+
+
+// reqseq값은 성공페이지로 갈 경우 검증을 위하여 세션에 담아둔다.
+
 $_SESSION["REQ_SEQ"] = $reqseq;
+
 
 // 입력될 plain 데이타를 만든다.
 $plaindata = "7:REQ_SEQ" . strlen($reqseq) . ":" . $reqseq .
@@ -51,14 +69,15 @@ else if( $enc_data== -9 )
 
 
 
-include_once(NC_PATH.'/head3.sub.php');
 ?>
 <script language='javascript'>
 window.name ="Parent_window";
 </script>
 <form name="niceInForm" method="post" action="<?php echo $niceForm_action; ?>">
     <input type="hidden" name="m" value="checkplusSerivce">						<!-- 필수 데이타로, 누락하시면 안됩니다. -->
-		 <input type="hidden" name="child" value="<?php echo $child;?>">
+		<input type="hidden" name="child" value="<?php echo $child;?>">
+		<input type="hidden" name="reqseq" value="<?php echo $_SESSION["REQ_SEQ"];?>">
+		<input type="hidden" name="center_id" value="<?php echo $center_id;?>">
 		<input type="hidden" name="EncodeData" value="<?php echo $enc_data;?>">		<!-- 위에서 업체정보를 암호화 한 데이타입니다. -->
 		<input type="hidden" name="enc_data" value="<?php echo $enc_data;?>">		<!-- 위에서 업체정보를 암호화 한 데이타입니다. -->
 </form>

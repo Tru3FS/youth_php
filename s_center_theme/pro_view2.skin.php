@@ -286,42 +286,52 @@ $p_startdate=date('Y-m-d', strtotime("+0 day", time()));
 
 if($first_start_day_yn=="N"){
 
-
+if($toymd  >= $Web_New_Start && $toymd <= $Web_New_End){
+	if($toyhm >= $Web_New_STime && $toyhm <= $Web_New_ETime){
 $json_string2 = CF_Basket_Check ($_SESSION['center_id'], $sales_division, get_session('m_code'), $sales_code, $sales_item_name, $week_name, $month_qty, $monthqty,  $unitprice, $s_date, $e_date, $vat_yn, get_session('m_id'), $url, $ip, '', '');
 
 
 $json_array2 = json_decode($json_string2, true); 
 
 		
-  if($json_array2['Result']['ResultCode'] == -30){
- //echo $json_array['Result']['ResultMsg'];
-  
-  $state_idx="0";
-  $s_class="bgb";	
-  $s_txt="이미 신청한 강좌입니다.";	
-  $s_txt2="온라인 강좌접수 기간입니다.";	
-  $s_tag = 'N';
-}elseif($json_array2['Result']['ResultCode'] == -40){
- //echo $json_array['Result']['ResultMsg'];
+	  if($json_array2['Result']['ResultCode'] == -30){
+		 //echo $json_array['Result']['ResultMsg'];
+		  
+		  $state_idx="0";
+		  $s_class="bgb";	
+		  $s_txt="이미 신청한 강좌입니다.";	
+		  $s_txt2="온라인 강좌접수 기간입니다.";	
+		  $s_tag = 'N';
+		}elseif($json_array2['Result']['ResultCode'] == -40){
+		 //echo $json_array['Result']['ResultMsg'];
 
-$state_idx="1";
- $s_txt="이미 결제한 강좌이거나 수강중입니다.";	
-  $s_txt2="이미 결제한 강좌이거나 수강중입니다.";	
-$state_txt="이미 결제한 강좌이거나 수강중입니다.";
-}elseif($json_array2['Result']['ResultCode'] == -50){
-//echo $json_array['Result']['ResultMsg'];
-$s_class="bgb";	
-$s_txt="접수마감";
-$s_txt2="온라인 수시접수가 마감되었습니다.";	
-$state_idx="2";
-$s_tag = 'N';
-}else{
-$s_class="";	
-$state_idx="3";
-$s_txt="수시접수강좌";	
-$s_txt2="온라인 수시접수";	
-$s_tag = 'Y';
-}
+		$state_idx="1";
+		 $s_txt="이미 결제한 강좌이거나 수강중입니다.";	
+		  $s_txt2="이미 결제한 강좌이거나 수강중입니다.";	
+		$state_txt="이미 결제한 강좌이거나 수강중입니다.";
+		}elseif($json_array2['Result']['ResultCode'] == -50){
+			//echo $json_array['Result']['ResultMsg'];
+			$s_class="bgb";	
+			$s_txt="접수마감";
+			$s_txt2="온라인 수시접수가 마감되었습니다.";	
+			$state_idx="2";
+			$s_tag = 'N';
+			}else{
+			$s_class="";	
+			$state_idx="3";
+			$s_txt="수시접수강좌";	
+			$s_txt2="온라인 수시접수";	
+			$s_tag = 'Y';
+		}
+	}
+}else{ 
+	$s_txt="접수불가";	
+	$s_class="bgb";	
+	$s_txt2="온라인 접수 기간이 아닙니다.";	
+	$state_idx="5";
+	//$s_people="<span>".$row2['Capacity_On_OffLine'].	"</span>";	
+	$s_tag = 'N';	
+	}
 
 }else{
 	if($toymd  >= $Web_New_Start && $toymd <= $Web_New_End){

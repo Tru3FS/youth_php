@@ -2075,7 +2075,7 @@ function CF_Member_Valid_List_Page ($center_id, $member_code, $member_id, $url, 
     $sql = $sql."       d.Detail_Name as Sales_Division_Name, b.Sales_Division, ";
     $sql = $sql."       b.Sales_Code, b.Sales_Item_Name, a.Start_Date, a.End_Date, b.First_Start_Day_Yn, ";
     $sql = $sql."       f_week_name(b.Use_Week) as Week_Name, b.Start_Time, b.End_Time, ";
-    $sql = $sql."       a.Receive_Amount, a.Org_Sale_Amount, h.Unit_Price, a.Trs_No, a.Trs_Seq, a.Member_Seq, g.RefNo, IFNULL(g.Approval_Date, '') as Tran_Date, ";
+    $sql = $sql."       a.Receive_Amount, a.Org_Sale_Amount, h.Unit_Price, a.Trs_No, a.Trs_Seq, a.Member_Seq, g.RefNo, IFNULL(g.Approval_Date, '') as Tran_Date, IFNULL(g.Approval_Time, '') as Tran_Time, ";
     $sql = $sql."       a.Location_Code, a.Locker_No, ";
     $sql = $sql."       a.Lesson_Qty, a.Coupon_Count, a.Coupon_Use_Count, ";
     $sql = $sql."       TO_DAYS(a.End_Date) - TO_DAYS(F_DATE_TIME('YYYYMMDD')) + 1 AS Expire_Days, ";
@@ -2093,8 +2093,8 @@ function CF_Member_Valid_List_Page ($center_id, $member_code, $member_id, $url, 
 	$sql = $sql."                         AND State            = '001') = 0 AND b.State = '001' THEN 'Y' ELSE 'N' END as Repayment_Yn ";
     $sql = $sql."  FROM TB_Transaction    a INNER JOIN ";
     $sql = $sql."       TB_Saleitem       b ON a.Center_ID = b.Center_ID AND a.Sales_Code = b.Sales_Code INNER JOIN ";
-	//$sql = $sql."       TB_Saleitem_Price h ON b.Center_ID = h.Center_ID AND b.Sales_Code = h.Sales_Code AND LPAD(a.Month_Qty, 2, '0') = h.Month_Qty AND a.Target_Code = h.Target_Code INNER JOIN ";
-	$sql = $sql."       TB_Saleitem_Price h ON b.Center_ID = h.Center_ID AND b.Sales_Code = h.Sales_Code AND LPAD(a.Month_Qty, 2, '0') = h.Month_Qty INNER JOIN ";
+	$sql = $sql."       TB_Saleitem_Price h ON b.Center_ID = h.Center_ID AND b.Sales_Code = h.Sales_Code AND LPAD(a.Month_Qty, 2, '0') = h.Month_Qty AND a.Unit_Price = h.Unit_Price ";
+	$sql = $sql."                              AND CASE WHEN IFNULL(a.Target_Code, '') = '' THEN 1 = 1 ELSE a.Target_Code = h.Target_Code END INNER JOIN ";
 	$sql = $sql."       TB_Code_D         c ON b.Event_Code = c.Detail_Code AND c.Common_Code = 'H02' LEFT OUTER JOIN ";
     $sql = $sql."       TB_Cardapproval   g ON  a.Center_ID = g.Center_ID AND a.Trs_No = g.Trs_No LEFT OUTER JOIN ";
     $sql = $sql."       TB_Code_D         d ON b.Sales_Division = d.Detail_Code AND d.Common_Code = 'H03' LEFT OUTER JOIN ";
@@ -2159,7 +2159,7 @@ function CF_Member_Valid_List_View ($center_id, $trs_no, $trs_seq, $url, $ip){
 	$sql = $sql."    d.Detail_Name as Sales_Division_Name, b.Sales_Division, ";
 	$sql = $sql."    b.Sales_Code, b.Sales_Item_Name, a.Start_Date, a.End_Date, b.First_Start_Day_Yn, ";
 	$sql = $sql."    f_week_name(b.Use_Week) as Week_Name, b.Start_Time, b.End_Time, ";
-	$sql = $sql."    a.Receive_Amount, g.Card_Name, a.Org_Sale_Amount, a.Trs_No, a.Trs_Seq, a.Member_Seq, g.RefNo, IFNULL(g.Approval_Date, '') as Tran_Date, ";
+	$sql = $sql."    a.Receive_Amount, g.Card_Name, a.Org_Sale_Amount, a.Trs_No, a.Trs_Seq, a.Member_Seq, g.RefNo, IFNULL(g.Approval_Date, '') as Tran_Date,IFNULL(g.Approval_Time, '') as Tran_Time, ";
 	$sql = $sql."    a.Location_Code, a.Locker_No, ";
 	$sql = $sql."    a.Lesson_Qty, a.Coupon_Count, a.Coupon_Use_Count, ";
 	$sql = $sql."    TO_DAYS(a.End_Date) - TO_DAYS(F_DATE_TIME('YYYYMMDD')) + 1 AS Expire_Days, ";
@@ -2859,7 +2859,49 @@ function CF_Basket_Insert ($center_id, $sales_division, $member_code, $sales_cod
 
 		}
 
+		$sql = "";
+		$sql = $sql."SELECT F_AGE(Center_ID, Birth_Date) as Age ";
+		$sql = $sql."  FROM TB_Member ";
+		$sql = $sql." WHERE Center_ID   = :center_id ";
+		$sql = $sql."   AND Member_Code = :member_code ";
 
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':center_id'      , $center_id);
+		$stmt->bindParam(':member_code'    , $member_code);
+
+		$stmt->execute();
+
+		$data = $stmt->fetch(PDO::FETCH_BOTH);
+
+		$age = $data['Age'];
+
+		$sql = "";
+		$sql = $sql."SELECT Target_Code ";
+		$sql = $sql."  FROM TB_SaleItem_Price ";
+		$sql = $sql." WHERE Center_ID  = :center_id ";
+		$sql = $sql."   AND Sales_Code = :sales_code ";
+		$sql = $sql."   AND Month_Qty  = LPAD(:month_qty, 2, '0') ";
+		$sql = $sql."   AND Unit_Price = :unit_price ";
+		$sql = $sql."   AND :age BETWEEN Age_From AND Age_To ";
+		$sql = $sql."   AND Apply_Date = (SELECT MAX(Apply_Date) ";
+		$sql = $sql."                       FROM TB_SaleItem_Price ";
+		$sql = $sql."                      WHERE Center_ID   = :center_id ";
+		$sql = $sql."                        AND Apply_Date <= :start_date ";
+		$sql = $sql."                    ) LIMIT 1 ";
+
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':center_id'      , $center_id);
+		$stmt->bindParam(':sales_code'     , $sales_code);
+		$stmt->bindParam(':month_qty'      , $month_qty);
+		$stmt->bindParam(':unit_price'     , $unit_price);
+		$stmt->bindParam(':age'            , $age);
+		$stmt->bindParam(':start_date'     , $start_date);
+
+		$stmt->execute();
+
+		$data = $stmt->fetch(PDO::FETCH_BOTH);
+
+		$target_code = $data['Target_Code'];
 
 
 		//Row Lock 걸기
@@ -3305,11 +3347,11 @@ function CF_Basket_Insert ($center_id, $sales_division, $member_code, $sales_cod
 		$sql = $sql."INSERT INTO TB_Basket_Program(Center_ID,  Sales_Date,              Sales_Division,                  Member_Code,      Sales_Code,           Sales_Item_Name,  Week_Name,    Qty, ";
 		$sql = $sql."                              Month_Qty,  Unit_Price,              Discount_Code,                   Discount_Amount,  Receive_Amount,       Start_Date,       End_Date,     Locker_No, ";
 		$sql = $sql."                              Vat_Yn,     Remark,                  Ins_Date,                        Ins_ID,           Ins_IP,               State,            Online_Gubun, ";
-		$sql = $sql."                              Payment_Start_Date, Payment_End_Date, Add_Discount_Code, Add_Discount_Amount, Location_Code) ";
+		$sql = $sql."                              Payment_Start_Date, Payment_End_Date, Add_Discount_Code, Add_Discount_Amount, Location_Code, Target_Code) ";
 		$sql = $sql."                       VALUES(:center_id, F_DATE_TIME('YYYYMMDD'), :sales_division,                 :member_code,     :sales_code,          :sales_item_name, :week_name,   1, ";
 		$sql = $sql."                              :month_qty, :unit_price,             :discount_code,                  :discount_amount, :last_receive_amount, :start_date,      :end_date,    :locker_no, ";
 		$sql = $sql."                              :vat_yn,    '',                      F_DATE_TIME('yyyymmddhh24miss'), :member_id,        :ip,                 '001',            'Online',     ";
-		$sql = $sql."                              Now(),               DATE_ADD(Now(), INTERVAL :basket_waiting_time MINUTE), :add_discount_code, :add_discount_amount, :location_code) ";
+		$sql = $sql."                              Now(),               DATE_ADD(Now(), INTERVAL :basket_waiting_time MINUTE), :add_discount_code, :add_discount_amount, :location_code, :target_code) ";
 
 		$stmt = $db->prepare($sql);
 		$stmt->bindParam(':center_id'          , $center_id);
@@ -3333,6 +3375,7 @@ function CF_Basket_Insert ($center_id, $sales_division, $member_code, $sales_cod
 		$stmt->bindParam(':add_discount_amount', $add_discount_amount);
 		$stmt->bindParam(':location_code'      , $location_code);
 		$stmt->bindParam(':locker_no'          , $locker_no);
+		$stmt->bindParam(':target_code'        , $target_code);
 
 
 		$stmt->execute();
