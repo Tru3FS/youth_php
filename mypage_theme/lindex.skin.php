@@ -23,7 +23,16 @@ $status_text="환불신청현황";
 $status="003";
 }
 
+$sql = "";
+$sql = $sql."SELECT PG_Merchant_Number, PG_Api_Key, PG_Gubun ";
+$sql = $sql."  FROM TB_SystemSetting ";
+$sql = $sql." WHERE Center_ID = '$center_id' ";
 
+$row00 = sql_fetch($sql);
+$mid      = $row00['PG_Merchant_Number'];
+$pg_gubun = $row00['PG_Gubun'];
+
+$clientId  = $mid;
 
    
 echo '<link rel="stylesheet" href="'.run_replace('head_css_url', '/s_css/mypage.css?ver='.NC_CSS_VER).'">'.PHP_EOL;
@@ -164,7 +173,7 @@ background: #27b4c5;
 }
 html.desktop .my_lecture_btns .my_lecture_btn.my_lecture_link.send{
 background: #f4811f;border: 1px solid #f4811f;
-width: 50%;
+
 }
 
 @media (max-width: 768px){
@@ -217,10 +226,14 @@ background: #27b4c5;
  .agreement-form button:not(:disabled) {
     cursor: pointer;
 }
-.my_lecture_btns .my_lecture_btn.incard.send{
+html.desktop .my_lecture_btns .my_lecture_btn.my_lecture_link.send{
 background: #f4811f;
 width: 50%;
 }
+.my_lecture_btns .my_lecture_btn.my_lecture_link.send{
+background: #f4811f;
+}
+
 }
 
 </style>
@@ -352,7 +365,10 @@ include_once(NC_MYPAGE_PATH.'/my_side_menu.php');
 
 if($status=='001'){    //수강신청현황
 
+
+
 ?>
+
 
 <div class="grayBox">
 			<p class="txt">수강신청취소, 결제는 상세보기 화면에서 신청할 수 있습니다.</p>
@@ -403,16 +419,6 @@ ORDER BY IDX DESC ";
  $total_countc= $row3['cnt'];
 
  $center_id =  $_SESSION['center_id'];
-
-$sql = "";
-$sql = $sql."SELECT PG_Merchant_Number, PG_Api_Key ";
-$sql = $sql."  FROM TB_SystemSetting ";
-$sql = $sql." WHERE Center_ID = '$center_id' ";
-
-$row00 = sql_fetch($sql);
-$mid   = $row00['PG_Merchant_Number'];
-
-$clientId  = $mid;
 
 $json_string = CF_Member_Basket_List_Cnt ( $_SESSION['center_id'],get_session('m_code'), get_session('m_id'), $url, $ip);
 
@@ -866,18 +872,18 @@ $.ajax({
 				//console.log(data.rstate);
 				if (data.ResultCode=='001') {
 
-
-
-
-
-  var frm = document.getElementById('lecture_list');
-
- var Frm = document.lecture_list;
+var Frm = document.lecture_list;
    var Amt = goodsAmount;
    var trs_no = Trs_no;
    //var gName = Frm.GoodsName.value.substring(0, 10);
 
 var goodsName2 = goodsName.substring(0, 35);
+
+<?php 
+   
+  if($pg_gubun=='1'){
+  
+?>
 
 
  AUTHNICE.requestPay({
@@ -893,6 +899,91 @@ var goodsName2 = goodsName.substring(0, 35);
       }
    });
 
+<?php }else{?>
+                     
+             console.log('1');
+
+                    if($('html').hasClass('desktop')){
+									var deviceType = "pc";
+                                    }else{
+									var deviceType = "mobile";
+                                    }
+
+
+
+
+                     var Frm=$('#kiccDiv');
+                     var cellular='';
+
+                     var jsonData = '{' +
+                              ' "mallId": "<?php echo $mid;?>",' +      //<-- PG_Merchant_Number
+					          ' "mallName": "<?php echo get_session("center_name");?>",' +
+                              ' "payMethodTypeCode": "11",' +
+                              ' "currency": "00",' +
+                              ' "amount": "' + Amt + '",' +
+                              ' "clientTypeCode": "00",' +
+                             ' "returnUrl": "<?php echo $NC_CARD_BURL;?>/kicc_response.php?idx='+idx+'&trs_no='+trs_no+'&center_id='+Center_ID+'&m_id=<?php echo get_session("m_id");?>&m_code=<?php echo get_session("m_code");?>&m_name=<?php echo get_session("m_name");?>&m_age=<?php echo get_session("m_age");?>",' +
+                              ' "deviceTypeCode": "' + deviceType + '",' +
+                              ' "shopOrderNo": "' + trs_no + '",' +
+                              ' "orderInfo": {' +
+                              ' "goodsName": "' + goodsName2 + '",' +
+                              ' "customerinfo": {' +
+                              ' "customerId": "' + member_code + '",' +
+                              ' "customerName":"' + member_name + '",' +
+                              ' "customerContactNo":"' + cellular + '"' +
+                              ' }' +
+                              ' }' +
+                              '}';
+
+
+                       $.ajax({
+                           url : "https://testpgapi.easypay.co.kr/api/trades/webpay",
+                           data : jsonData,
+                           type : "POST",
+                           async : true,
+                           dataType : "JSON",
+                           contentType :"application/json; charset=utf-8",
+
+                           success: function(response) {
+                              console.log("");
+                              console.log("[requestPostBodyJson] : [response] : " + JSON.stringify(response));
+                              console.log("");
+
+                              if(response.resCd == "0000") {
+                                 
+								 <?php if(NC_IS_MOBILE) {;?>
+
+                                location.href=response.authPageUrl;
+								<?php }else{?>
+                                
+								 Frm.target = "_blank";
+                                 window.open(response.authPageUrl, "EasyPay", "width:300, height:320");
+                                
+                                <?php }?>
+							  
+							  }
+                           },
+
+                           // [에러 확인 부분]
+                           error: function(xhr) {
+                              console.log("");
+                              console.log("[requestPostBodyJson] : [error] : " + JSON.stringify(xhr));
+                              console.log("");
+                           },
+
+                           // [완료 확인 부분]
+                           complete:function(data,textStatus) {
+                              console.log("");
+                              console.log("[requestPostBodyJson] : [complete] : " + textStatus);
+                              console.log("");
+                           }
+                           });
+ 
+
+
+
+
+<?php }?>
 
 
 
@@ -1243,7 +1334,7 @@ $refNo=$val['RefNo'];
 $amount=$val['Receive_Amount'];
 
 $tran_date=$val['Tran_Date'];
-
+$tran_time=$val['Tran_Time'];
  $first_start_day_yn=$val['First_Start_Day_Yn'];
 
 
@@ -1317,7 +1408,7 @@ $after_start =  date("Ymd", strtotime($s_date. ' +25 days'));
                             <span class="my_lecture_status <?php if($repayment_yn=='Y'){?><?php }else{?>end<?php }?>"><?php if($repayment_yn=='Y'){?>재수강접수<?php }else{?>결제완료<?php }?></span>
                             </div>
                             <div class="my_lecture_lec_area">
-                                    <a class="my_lecture_lec nc-open-bottom-popup" href="#!"><?php echo number_format($receive_amount);?></a>
+                                    <a class="my_lecture_lec nc-open-bottom-popup" href="#!">결제된 금액<?php echo number_format($receive_amount);?>&nbsp;&nbsp;&nbsp;단가<?php echo number_format($unit_price);?></a>
                                 </div><!-- .my_lecture_lec_area -->
                                                                                                     <a class="my_lecture_title" href="javascript:void(0);"><?php if($first_start_day_yn=="N"){?>[수시]<?php }?><?php echo $sales_item_name;?></a>
 																									<!--<div class="my_lecture_deadline">재수강신청</div>-->
@@ -1344,11 +1435,19 @@ $after_start =  date("Ymd", strtotime($s_date. ' +25 days'));
  <?php if($sales_date == $reday){
   
  $m_code=get_session('m_code');
-
-
-
  
- ?><a class="my_lecture_btn my_lecture_link incard cancel" onclick="goCard_Cancel('<?php echo $trs_no;?>','<?php echo $trs_seq;?>','<?php echo $refNo;?>','<?php echo $tran_date;?>','<?php echo $amount;?>','<?php echo get_session('m_name');?>','<?php echo get_session('m_code');?>','<?php echo  $_SESSION['center_id'];?>');"><span>결제취소</span></a><?php } ?>
+ ?>
+ 
+ <?php 
+  if($pg_gubun=='1'){
+?>
+ <a class="my_lecture_btn my_lecture_link incard cancel" onclick="goCard_Cancel('<?php echo $trs_no;?>','<?php echo $trs_seq;?>','<?php echo $refNo;?>','<?php echo $tran_date;?>','<?php echo $amount;?>','<?php echo get_session('m_name');?>','<?php echo get_session('m_code');?>','<?php echo  $_SESSION['center_id'];?>');"><span>결제취소</span></a>
+<?php }else{?>
+ <a class="my_lecture_btn my_lecture_link incard cancel" onclick="goCard_Cancel('<?php echo $trs_no;?>','<?php echo $trs_seq;?>','<?php echo $refNo;?>','<?php echo $tran_date;?><?php echo $tran_time;?>','<?php echo $amount;?>','<?php echo get_session('m_name');?>','<?php echo get_session('m_code');?>','<?php echo  $_SESSION['center_id'];?>');"><span>결제취소</span></a><?php } ?>
+
+<?php }?>
+
+
 <?php } ?>
 
                                                             </div>
@@ -2138,8 +2237,6 @@ $.ajax({
 
 <?php }else{?>
 
-console.log('2');
-
 
 $.ajax({
         url:'./ajax.basket_check.php',
@@ -2161,16 +2258,19 @@ $.ajax({
 
 
 
-
-
-  var frm = document.getElementById('lecture_list');
-
- var Frm = document.lecture_list;
+   var Frm = document.lecture_list;
    var Amt = goodsAmount;
    var trs_no = Trs_no;
    //var gName = Frm.GoodsName.value.substring(0, 10);
 
-	var goodsName2 = goodsName.substring(0, 35);
+   var goodsName2 = goodsName.substring(0, 35);
+
+<?php 
+   
+  if($pg_gubun=='1'){
+  
+?>
+
 
  AUTHNICE.requestPay({
       clientId: client_id,
@@ -2185,8 +2285,80 @@ $.ajax({
       }
    });
 
+<?php }else{?>
+                     
+                    if($('html').hasClass('desktop')){
+									var deviceType = "pc";
+                                    }else{
+									var deviceType = "mobile";
+                                    }
 
 
+
+
+                     var Frm=$('#kiccDiv');
+                     var cellular='';
+
+                     var jsonData = '{' +
+                              ' "mallId": "<?php echo $mid;?>",' +      //<-- PG_Merchant_Number
+                              ' "mallName": "<?php echo get_session("center_name");?>",' +
+							  ' "payMethodTypeCode": "11",' +
+                              ' "currency": "00",' +
+                              ' "amount": "' + Amt + '",' +
+                              ' "clientTypeCode": "00",' +
+                              ' "returnUrl": "<?php echo $NC_CARD_BURL;?>/kicc_response.php?idx='+idx+'&trs_no='+trs_no+'&center_id='+Center_ID+'&m_id=<?php echo get_session("m_id");?>&m_code=<?php echo get_session("m_code");?>&m_name=<?php echo get_session("m_name");?>&m_age=<?php echo get_session("m_age");?>",' +
+                              ' "deviceTypeCode": "' + deviceType + '",' +
+                              ' "shopOrderNo": "' + trs_no + '",' +
+                              ' "orderInfo": {' +
+                              ' "goodsName": "' + goodsName2 + '",' +
+                              ' "customerinfo": {' +
+                              ' "customerId": "' + member_code + '",' +
+                              ' "customerName":"' + member_name + '",' +
+                              ' "customerContactNo":"<?php echo get_session("m_id");?>"' +
+                              ' }' +
+                              ' }' +
+                              '}';
+
+
+                       $.ajax({
+                           url : "https://testpgapi.easypay.co.kr/api/trades/webpay",
+                           data : jsonData,
+                           type : "POST",
+                           async : true,
+                           dataType : "JSON",
+                           contentType :"application/json; charset=utf-8",
+
+                           success: function(response) {
+                              console.log("");
+                              console.log("[requestPostBodyJson] : [response] : " + JSON.stringify(response));
+                              console.log("");
+
+                              if(response.resCd == "0000") {
+                                 Frm.target = "_blank";
+                                 window.open(response.authPageUrl, "EasyPay", "width:300, height:320");
+                              }
+                           },
+
+                           // [에러 확인 부분]
+                           error: function(xhr) {
+                              console.log("");
+                              console.log("[requestPostBodyJson] : [error] : " + JSON.stringify(xhr));
+                              console.log("");
+                           },
+
+                           // [완료 확인 부분]
+                           complete:function(data,textStatus) {
+                              console.log("");
+                              console.log("[requestPostBodyJson] : [complete] : " + textStatus);
+                              console.log("");
+                           }
+                           });
+ 
+
+
+
+
+<?php }?>
 
 						
 	
@@ -2350,7 +2522,7 @@ function goCard_Cancel(Trs_No,Trs_Seq,RefNo,tranDate,amount,customerName,member_
            		var rsult="";	  
 				NC.alert({
 				title    : '결제를 취소하시겠습니까?',
-				message  : '결제취소 시 결제한 강좌예약이 취소 됩니다.',
+				message  : '결제취소 시 결제한 강좌예약이 취소됩니다.',
 				ok       : '예',
 				cancel   : '아니오',
 				button_icon : false,
@@ -2359,6 +2531,14 @@ function goCard_Cancel(Trs_No,Trs_Seq,RefNo,tranDate,amount,customerName,member_
 				primary_button: true,
 				type     : 'info',
 				on_confirm  : function(){
+				
+
+                <?php 
+   
+                if($pg_gubun=='1'){
+  
+                ?>
+
 				rsult += "<form name='form1' method='post' action='<?php echo $NC_CARD_BURL;?>/cancelResponse.php'>";
 				rsult += "<input type='hidden' name='trs_no' value='"+Trs_No+"'>";	
 		        rsult += "<input type='hidden' name='trs_seq' value='"+Trs_Seq+"'>";	
@@ -2370,7 +2550,96 @@ function goCard_Cancel(Trs_No,Trs_Seq,RefNo,tranDate,amount,customerName,member_
 				rsult += "<input type='hidden' name='center_id' value='"+center_id+"'>";
 			    rsult += "<input type='hidden' name='ptype' value='L'>";			
 				rsult += "</form>"; 	 
-				$(rsult).appendTo('body').submit();
+			   
+
+	            $(rsult).appendTo('body').submit();
+
+
+				<?php 
+				}else{
+
+					?>
+				
+
+
+                          $.ajax({
+                           url : "<?php echo $NC_CARD_BURL;?>/kicc_payCancel.php",
+                           data : {"trs_no":Trs_No,"trs_seq":Trs_Seq,"refNo":RefNo,"tranDate":tranDate,"amount":amount,"customerName":customerName,"member_code":member_code,"m_name":customerName,"center_id":center_id,"m_id":'<?php echo get_session("m_id");?>',"m_age":'<?php echo get_session("m_age");?>'},
+                           type : "POST",
+                          async: true,
+                          cache: false,		
+                          accept : "application/json",
+                          dataType: "json",
+                          success: function(data) {
+         													
+                      
+
+															if(data.resCd == "0000") {
+                                
+															
+															  	NC.alert({
+				title    : '결제가 정상취소되었습니다',
+				message  : '',
+				ok       : '예',
+				cancel   : '아니오',
+				button_icon : false,
+				has_icon : false,
+				is_confirm : false,
+				primary_button: true,
+				type     : 'info',
+				on_confirm  : function(){
+
+                                                      location.href="../mypage/lindex.php?center_id=<?php echo $_SESSION['center_id'];?>&status=001";
+				}
+																});
+
+
+															  
+															  }else{
+
+                                  
+NC.alert({
+				title    : data.resCd,
+				message  : data.resultMsg,
+				ok       : '예',
+				cancel   : '아니오',
+				button_icon : false,
+				has_icon : false,
+				is_confirm : false,
+				primary_button: true,
+				type     : 'info',
+				on_confirm  : function(){
+                                                    
+                                                    location.href="../mypage/lindex.php?center_id=<?php echo $_SESSION['center_id'];?>&status=002";
+
+				}
+						
+
+
+});
+														
+															  }
+                           },
+
+                           // [에러 확인 부분]
+                           error: function(xhr) {
+                            
+                           },
+
+                           // [완료 확인 부분]
+                           complete:function(data,textStatus) {
+                    
+                           }
+                           });
+
+
+
+
+
+				
+               <?php }?>
+
+			
 
 
 					}	
@@ -2393,5 +2662,5 @@ function goCard_Cancel(Trs_No,Trs_Seq,RefNo,tranDate,amount,customerName,member_
 </div>
 </div>
 </div>
-
+<div id="kiccDiv"></div>
 </main>

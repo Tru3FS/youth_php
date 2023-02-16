@@ -2093,8 +2093,9 @@ function CF_Member_Valid_List_Page ($center_id, $member_code, $member_id, $url, 
 	$sql = $sql."                         AND State            = '001') = 0 AND b.State = '001' THEN 'Y' ELSE 'N' END as Repayment_Yn ";
     $sql = $sql."  FROM TB_Transaction    a INNER JOIN ";
     $sql = $sql."       TB_Saleitem       b ON a.Center_ID = b.Center_ID AND a.Sales_Code = b.Sales_Code INNER JOIN ";
-	$sql = $sql."       TB_Saleitem_Price h ON b.Center_ID = h.Center_ID AND b.Sales_Code = h.Sales_Code AND LPAD(a.Month_Qty, 2, '0') = h.Month_Qty AND a.Unit_Price = h.Unit_Price ";
-	$sql = $sql."                              AND CASE WHEN IFNULL(a.Target_Code, '') = '' THEN 1 = 1 ELSE a.Target_Code = h.Target_Code END INNER JOIN ";
+	$sql = $sql."       TB_Saleitem_Price h ON b.Center_ID = h.Center_ID AND b.Sales_Code = h.Sales_Code AND LPAD(a.Month_Qty, 2, '0') = h.Month_Qty ";
+	//창동청소년센터의 경우에 단가 변경이 되어도 재수강 신청을 해야함(mhlee-2023.02.16)
+	$sql = $sql."                              AND CASE WHEN :center_id IN ('140') THEN 1 = 1 ELSE a.Unit_Price = h.Unit_Price END INNER JOIN ";
 	$sql = $sql."       TB_Code_D         c ON b.Event_Code = c.Detail_Code AND c.Common_Code = 'H02' LEFT OUTER JOIN ";
     $sql = $sql."       TB_Cardapproval   g ON  a.Center_ID = g.Center_ID AND a.Trs_No = g.Trs_No LEFT OUTER JOIN ";
     $sql = $sql."       TB_Code_D         d ON b.Sales_Division = d.Detail_Code AND d.Common_Code = 'H03' LEFT OUTER JOIN ";

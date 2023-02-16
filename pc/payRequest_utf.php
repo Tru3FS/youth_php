@@ -3,6 +3,10 @@
 include_once("./_common.php");
 header("Content-Type:text/html; charset=utf-8;"); 
 /*
+
+-- 현재파일 사용안함
+-- lindex.php에서 nice 처리
+
 *******************************************************
 * <결제요청 파라미터>
 * 결제시 Form 에 보내는 결제요청 파라미터입니다.
