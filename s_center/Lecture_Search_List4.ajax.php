@@ -700,11 +700,20 @@ $toyhm=date('Hi',time());
 
 $totmd=$toymd."".$toyhm;
 
+
+
+
+
+
+if($Web_Apply_Gubun == "1" ) {
+
+
+
 if($first_start_day_yn=='Y'){
 
 
-	if($toymd  >= $Web_New_Start && $toymd <= $Web_New_End){
-		if($toyhm >= $Web_New_STime && $toyhm <= $Web_New_ETime){
+	if(($toymd  >= $Web_New_Start) && ($toymd <= $Web_New_End)){
+		if(($toyhm >= $Web_New_STime) && ($toyhm <= $Web_New_ETime)){
 			if ($percent_inwon<100){	
 			$s_txt="<span class='rbb'><span class='cc'>신청</span></span>";	
 			$s_txt2="<span class='rbn'>접수가능</span>";	
@@ -724,8 +733,8 @@ if($first_start_day_yn=='Y'){
 			$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
 			$s_tag = 'N';	
 		}
-	}else if($toymd  >= $Web_Re_Start && $toymd <= $Web_Re_End){
-		if($toyhm >= $Web_Re_STime && $toyhm <= $Web_Re_ETime){
+	}else if(($toymd  >= $Web_Re_Start) && ($toymd <= $Web_Re_End)){
+		if(($toyhm >= $Web_Re_STime) && ($toyhm <= $Web_Re_ETime)){
 			if ($percent_inwon<100){	
 			$s_txt="<span class='rbb'>신청</span></span>";
 			}else{
@@ -742,15 +751,21 @@ if($first_start_day_yn=='Y'){
 			$s_tag = 'N';
 		}
 	}else{ 
-	$s_txt="<span class='rbx'>대기</span>";	
+	if ($percent_inwon<100){	
+			$s_txt="<span class='rbd'>대기</span></span>";
+			}else{
+            $s_txt="<span class='rbx'>마감</span>";
+            }
 	$s_txt2="<span class='rbf'>접수불가</span>";	
 	$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
 	$s_tag = 'N';	
 	}
 
 }else{
-	if($toymd  >= $Web_New_Start && $toymd <= $Web_New_End){
-		if($toyhm >= $Web_New_STime && $toyhm <= $Web_New_ETime){
+
+
+	if(($toymd  >= $Web_New_Start) && ($toymd <= $Web_New_End)){
+		if(($toyhm >= $Web_New_STime) && ($toyhm <= $Web_New_ETime)){
 
 			if ($percent_inwon< 100){	
 			$s_txt="<span class='rbb'><span class='cc'>신청</span></span>";	
@@ -769,14 +784,164 @@ if($first_start_day_yn=='Y'){
 			}
 				$s_tag = 'T';
 			}
+		}else{
+
+	if ($percent_inwon<100){	
+			$s_txt="<span class='rbd'>대기</span></span>";
+			}else{
+            $s_txt="<span class='rbx'>마감</span>";
+            }
+		$s_txt2="<span class='rbf'>접수불가</span>";	
+		$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
+		$s_tag = 'N';	
+
+
 		}
 	}else{ 
-		$s_txt="<span class='rbx'>대기</span>";	
+	if ($percent_inwon<100){	
+			$s_txt="<span class='rbd'>대기</span></span>";
+			}else{
+            $s_txt="<span class='rbx'>마감</span>";
+            }
 		$s_txt2="<span class='rbf'>접수불가</span>";	
 		$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
 		$s_tag = 'N';	
 	}
 	
+
+}
+}
+else if($Web_Apply_Gubun == "2" ){
+
+
+
+
+
+if($first_start_day_yn=='Y'){
+
+	if(($toymd  >= $Web_New_Start) && ($toymd <= $Web_New_End)){
+	if(($totmd >= $Web_New_Start_T) && ($totmd <= $Web_New_End_T)){
+			if ($percent_inwon<100){	
+			$s_txt="<span class='rbb'><span class='cc'>신청</span></span>";	
+			$s_txt2="<span class='rbn'>접수가능</span>";	
+			$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
+			$s_tag = 'Y';
+			}else{
+
+			$s_txt="<span class='rbx'>마감</span>";
+			$s_txt2="<span class='rbd'>접수불가</span>";	
+			$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
+			$s_tag = 'Y';
+			
+			}		
+		}else{
+			$s_txt="<span class='rbw'>준비</span>";	
+			$s_txt2="<span class='rbn'>접수대기</span>";	
+			$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
+			$s_tag = 'N';	
+		}
+	}else if(($toymd  >= $Web_Re_Start) && ($toymd <= $Web_Re_End)){
+		if(($totmd >= $Web_Re_Start_T) && ($totmd <= $Web_Re_End_T)){
+			if ($percent_inwon<100){	
+			$s_txt="<span class='rbb'>신청</span></span>";
+			}else{
+            $s_txt="<span class='rbx'>마감</span>";
+            }
+
+			$s_txt2="<span class='rbn'>재수강접수</span>";	
+			$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";		
+			$s_tag = 'Y';
+		}else{
+			$s_txt="<span class='rbw'>준비</span>";	
+			$s_txt2="<span class='rbn'>접수대기</span>";	
+			$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
+			$s_tag = 'N';
+		}
+	}else{ 
+	if ($percent_inwon<100){	
+			$s_txt="<span class='rbd'>대기</span></span>";
+			}else{
+            $s_txt="<span class='rbx'>마감</span>";
+            }
+	$s_txt2="<span class='rbf'>접수불가</span>";	
+	$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
+	$s_tag = 'N';	
+	}
+
+}else{
+
+
+/*
+
+			if ($percent_inwon< 100){	
+			$s_txt="<span class='rbb'><span class='cc'>신청</span></span>";	
+			$s_txt2="<span class='rbn ss'>수시접수</span>";	
+			$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
+				$s_tag = 'T';
+			}else{
+
+			$s_txt="<span class='rbx'>마감</span>";
+			$s_txt2="<span class='rbd ss'>수시접수</span>";	
+			
+			if($row2['Capacity_On_OffLine']=='0'){
+			$s_people="<span>-</span>";	
+			}else{
+            $s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	 
+			}
+				$s_tag = 'T';
+			}
+*/
+
+
+	if(($toymd  >= $Web_New_Start) && ($toymd <= $Web_New_End)){
+		if(($totmd >= $Web_New_Start_T) && ($totmd <= $Web_New_End_T)){
+           
+
+			if ($percent_inwon< 100){	
+			$s_txt="<span class='rbb'><span class='cc'>신청</span></span>";	
+			$s_txt2="<span class='rbn ss'>수시접수</span>";	
+			$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
+				$s_tag = 'T';
+			}else{
+
+			$s_txt="<span class='rbx'>마감</span>";
+			$s_txt2="<span class='rbd ss'>수시접수</span>";	
+			
+			if($row2['Capacity_On_OffLine']=='0'){
+			$s_people="<span>-</span>";	
+			}else{
+            $s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	 
+			}
+				$s_tag = 'T';
+			}
+		}else{
+
+	if ($percent_inwon<100){	
+			$s_txt="<span class='rbd'>대기</span></span>";
+			}else{
+            $s_txt="<span class='rbx'>마감</span>";
+            }
+		$s_txt2="<span class='rbf'>접수불가</span>";	
+		$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
+		$s_tag = 'N';	
+
+		}
+	}else{ 
+
+
+
+	if ($percent_inwon<100){	
+			$s_txt="<span class='rbd'>대기</span></span>";
+			}else{
+            $s_txt="<span class='rbx'>마감</span>";
+            }
+		$s_txt2="<span class='rbf'>접수불가</span>";	
+		$s_people="<span>".$cur_people."/".$row2['Capacity_On_OffLine'].	"</span>";	
+		$s_tag = 'N';	
+	}
+	
+
+}
 
 }
 

@@ -787,7 +787,7 @@ border-bottom:0px;
 }
 .rank_list2 td{
     height: 70px;
-    padding-right: 0px;
+    padding-right: 3px;
     border-top: 1px solid #e4e8eb;    float: none;padding-left: 15px;vertical-align: middle;
     display: table-cell;
 }
@@ -885,10 +885,13 @@ height:120px;
 }
 
 .rank_list2 tr.jone td{
-    height: 50px;
-    float: left;
-    width: 100%;
-	    position: relative;display: table;
+    height: 70px;
+    padding-right: 3px;
+    border-top: 1px solid #e4e8eb;
+    float: none;
+    padding-left: 15px;
+    vertical-align: middle;
+    display: table-cell;
 }
 .rank_list2  tr.jone td, .rank_list2  tr.jone td > a, .rank_list2  tr.jone td > div {
     height: 50px;width:100%;
@@ -1219,7 +1222,8 @@ height:auto;
 position:relative;
 }
 .step_box2 .step_items > li .cont ul {
-    height: 100%;
+    min-height:100%;
+    height: auto;
     padding: 0;
 }
 .step_box2 .step_items > li:first-child .cont {

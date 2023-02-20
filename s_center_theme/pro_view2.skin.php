@@ -284,10 +284,13 @@ $totmd=$toymd."".$toyhm;
 $p_startdate=date('Y-m-d', strtotime("+0 day", time()));
 
 
+//echo $first_start_day_yn;
+
+
 if($first_start_day_yn=="N"){
 
 if($toymd  >= $Web_New_Start && $toymd <= $Web_New_End){
-	if($toyhm >= $Web_New_STime && $toyhm <= $Web_New_ETime){
+if($toyhm >= $Web_New_STime && $toyhm <= $Web_New_ETime){
 $json_string2 = CF_Basket_Check ($_SESSION['center_id'], $sales_division, get_session('m_code'), $sales_code, $sales_item_name, $week_name, $month_qty, $monthqty,  $unitprice, $s_date, $e_date, $vat_yn, get_session('m_id'), $url, $ip, '', '');
 
 
@@ -323,7 +326,18 @@ $json_array2 = json_decode($json_string2, true);
 			$s_txt2="온라인 수시접수";	
 			$s_tag = 'Y';
 		}
+	}else{
+
+	$s_txt="접수불가";	
+	$s_class="bgb";	
+	$s_txt2="온라인 접수 기간이 아닙니다.";	
+	$state_idx="5";
+	//$s_people="<span>".$row2['Capacity_On_OffLine'].	"</span>";	
+	$s_tag = 'N';	
+
 	}
+
+
 }else{ 
 	$s_txt="접수불가";	
 	$s_class="bgb";	

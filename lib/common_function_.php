@@ -1374,8 +1374,9 @@ function CF_Web_Application_Search ($center_id, $sales_code){
 	$sql = "";
     $sql = $sql."SELECT a.Sales_Code, a.Sales_Item_Name,a.First_Start_Day_Yn, IFNULL(a.Web_Re_Start, '00000000') as Web_Re_Start, IFNULL(a.Web_Re_End, '00000000') as Web_Re_End, ";
 	$sql = $sql."       IFNULL(a.Web_Re_Start_Time, '0000') as Web_Re_Start_Time, IFNULL(a.Web_Re_End_Time, '0000') as Web_Re_End_Time, IFNULL(a.Web_New_Start, '00000000') as Web_New_Start, ";
-	$sql = $sql."       IFNULL(a.Web_New_End, '00000000') as Web_New_End, IFNULL(a.Web_New_Start_Time, '0000') as Web_New_Start_Time, IFNULL(a.Web_New_End_Time, '0000') as Web_New_End_Time, '' as Web_Apply_Gubun ";
-    $sql = $sql."  FROM TB_SaleItem   a ";
+	$sql = $sql."       IFNULL(a.Web_New_End, '00000000') as Web_New_End, IFNULL(a.Web_New_Start_Time, '0000') as Web_New_Start_Time, IFNULL(a.Web_New_End_Time, '0000') as Web_New_End_Time, b.Web_Apply_Gubun ";
+    $sql = $sql."  FROM TB_SaleItem   a INNER JOIN ";
+	$sql = $sql."       TB_Systemsetting   b ON a.Center_ID = b.Center_ID";
     $sql = $sql." WHERE a.Center_ID        = :center_id ";
 	$sql = $sql."   AND a.Sales_Code       = :sales_code ";
     $sql = $sql."   AND a.Sales_Division   = '003' ";
@@ -2093,9 +2094,9 @@ function CF_Member_Valid_List_Page ($center_id, $member_code, $member_id, $url, 
 	$sql = $sql."                         AND State            = '001') = 0 AND b.State = '001' THEN 'Y' ELSE 'N' END as Repayment_Yn ";
     $sql = $sql."  FROM TB_Transaction    a INNER JOIN ";
     $sql = $sql."       TB_Saleitem       b ON a.Center_ID = b.Center_ID AND a.Sales_Code = b.Sales_Code INNER JOIN ";
-	$sql = $sql."       TB_Saleitem_Price h ON b.Center_ID = h.Center_ID AND b.Sales_Code = h.Sales_Code AND LPAD(a.Month_Qty, 2, '0') = h.Month_Qty ";
+	$sql = $sql."       TB_Saleitem_Price h ON b.Center_ID = h.Center_ID AND b.Sales_Code = h.Sales_Code AND LPAD(a.Month_Qty, 2, '0') = h.Month_Qty  INNER JOIN  ";
 	//창동청소년센터의 경우에 단가 변경이 되어도 재수강 신청을 해야함(mhlee-2023.02.16)
-	$sql = $sql."                              AND CASE WHEN :center_id IN ('140') THEN 1 = 1 ELSE a.Unit_Price = h.Unit_Price END INNER JOIN ";
+	//$sql = $sql."                              AND CASE WHEN :center_id = '140'  THEN 1 = 1 ELSE a.Unit_Price = h.Unit_Price END";
 	$sql = $sql."       TB_Code_D         c ON b.Event_Code = c.Detail_Code AND c.Common_Code = 'H02' LEFT OUTER JOIN ";
     $sql = $sql."       TB_Cardapproval   g ON  a.Center_ID = g.Center_ID AND a.Trs_No = g.Trs_No LEFT OUTER JOIN ";
     $sql = $sql."       TB_Code_D         d ON b.Sales_Division = d.Detail_Code AND d.Common_Code = 'H03' LEFT OUTER JOIN ";
@@ -2861,7 +2862,7 @@ function CF_Basket_Insert ($center_id, $sales_division, $member_code, $sales_cod
 		}
 
 		$sql = "";
-		$sql = $sql."SELECT F_AGE(Center_ID, Birth_Date) as Age ";
+		$sql = $sql."SELECT F_AGE(Center_ID, Birth_Date) as Age, Sex ";
 		$sql = $sql."  FROM TB_Member ";
 		$sql = $sql." WHERE Center_ID   = :center_id ";
 		$sql = $sql."   AND Member_Code = :member_code ";
@@ -2875,6 +2876,7 @@ function CF_Basket_Insert ($center_id, $sales_division, $member_code, $sales_cod
 		$data = $stmt->fetch(PDO::FETCH_BOTH);
 
 		$age = $data['Age'];
+		$sex = $data['Sex'];
 
 		$sql = "";
 		$sql = $sql."SELECT Target_Code ";
@@ -3113,7 +3115,7 @@ function CF_Basket_Insert ($center_id, $sales_division, $member_code, $sales_cod
 		$sql = $sql."SELECT Discount_Rate, COUNT(*) as cnt ";
 		$sql = $sql."  FROM TB_Discount_By_Sales_Code ";
 		$sql = $sql." WHERE Center_ID     = :center_id ";
-		$sql = $sql."   AND Sales_Code    = :sales_code " ;
+		$sql = $sql."   AND Sales_Code    = :sales_code ";
 		$sql = $sql."   AND Discount_Code = :discount_code ";
 
 
@@ -3139,8 +3141,20 @@ function CF_Basket_Insert ($center_id, $sales_division, $member_code, $sales_cod
 		}
 
 		if($reg_fertile_yn != $fertile_yn){
-			$discount_code = '00001';
-			$discount_rate = 0;
+			if($fertile_yn == 'Y'){
+				$discount_code = '00001';
+				$discount_rate = 0;
+			}
+		}
+		else{
+			if($reg_fertile_yn == 'Y'){
+				if($age >= 13 && $age <= 55 && $sex == 'F'){
+				}
+				else{
+					$discount_code = '00001';
+					$discount_rate = 0;
+				}
+			}
 		}
 
 		//강북의 경우에 온라인에서는 할인적용 안함 - mhlee(2023.01.18)
@@ -3303,8 +3317,20 @@ function CF_Basket_Insert ($center_id, $sales_division, $member_code, $sales_cod
 		}
 
 		if($reg_fertile_yn != $add_fertile_yn){
-			$add_discount_code = '00001';
-			$add_discount_rate = 0;
+			if($add_fertile_yn == 'Y'){
+				$add_discount_code = '00001';
+				$add_discount_rate = 0;
+			}
+		}
+		else{
+			if($reg_fertile_yn == 'Y'){
+				if($age >= 13 && $age <= 55 && $sex == 'F'){
+				}
+				else{
+					$add_discount_code = '00001';
+					$add_discount_rate = 0;
+				}
+			}
 		}
 
 		//강북의 경우에 온라인에서는 할인적용 안함 - mhlee(2023.01.18)
