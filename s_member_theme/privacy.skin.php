@@ -542,11 +542,11 @@ width:100%;
 <b style="font-weight:500;"></b>
 <ul>
 <li><span>
-[개인정보보호법 제15조에 의거  <?php echo get_session("center_name");?> 관련업무를 위해 본인의 생년월일, 주소, 연락처, 차량번호 등의 개인정보가 회원 탈퇴시까지 활용됨에 동의합니다.</span>
+개인정보보호법 제15조에 의거  <?php echo get_session("center_name");?> 관련업무를 위해 본인의 생년월일, 주소, 연락처, 차량번호 등의 개인정보가 회원 탈퇴시까지 활용됨에 동의합니다.</span>
 
 </li>
 <br>
-<li><span>신청인은 개인정보의 수집 및 활용에 동의하지 않을 수 있으며, 미동의 시 청소년수련관 이용이 제한됩니다.]
+<li><span>신청인은 개인정보의 수집 및 활용에 동의하지 않을 수 있으며, 미동의 시 청소년수련관 이용이 제한됩니다.
 </span>
 </li>
 <br>
@@ -570,11 +570,11 @@ width:100%;
 <b style="font-weight:500;"></b>
 <ul>
 <li><span>
-[개인정보보호법 제15조에 의거  <?php echo get_session("center_name");?> 관련업무를 위해 본인의 생년월일, 주소, 연락처, 차량번호 등의 개인정보가 회원 탈퇴시까지 활용됨에 동의합니다.</span>
+개인정보보호법 제15조에 의거  <?php echo get_session("center_name");?> 관련업무를 위해 본인의 생년월일, 주소, 연락처, 차량번호 등의 개인정보가 회원 탈퇴시까지 활용됨에 동의합니다.</span>
 
 </li>
 <br>
-<li><span>신청인은 개인정보의 수집 및 활용에 동의하지 않을 수 있으며, 미동의 시 청소년수련관 이용이 제한됩니다.]
+<li><span>신청인은 개인정보의 수집 및 활용에 동의하지 않을 수 있으며, 미동의 시 청소년수련관 이용이 제한됩니다.
 </span>
 </li>
 <br>
@@ -591,6 +591,36 @@ width:100%;
 </div>
 </div>
 
+<?php } else if(get_session('center_id')=='531'){?>
+
+<div class="pro_body_section">
+<div class="agree_box">
+<b style="font-weight:500;"></b>
+<ul>
+<li><span>
+본인은 <?php echo get_session("center_name");?>의 회원으로 가입하여 시설을 이용함에 있어 다음사항을 이행할 것을 서약합니다.</span>
+
+</li>
+<br>
+<li><span>개인정보보호법 제15조에 의거 <?php echo get_session("center_name");?> 관련업무를 위해 본인의 성명, 생년월일, 성별, 주소, 연락처, E-MAIL 등의 개인정보가 회원 탈퇴 시까지 활용됨에 동의합니다.
+</span>
+</li>
+<br>
+<li><span>신청인은 개인정보의 수집 및 활용에 동의하지 않을 수 있으며, 미동의 시 <?php echo get_session("center_name");?> 강좌 수강이 제한됩니다.
+</span>
+</li>
+<br>
+</ul>
+<br>
+<br>
+<!--
+<b style="font-weight:500;">부칙</b>
+<ul>
+<li>(시행일) 이 약관은 2022년 07월 25일부터 적용합니다.</li>
+</ul>
+-->
+</div>
+</div>
 <?php }else{ ?>
 
 <div class="pro_body_section">
@@ -598,11 +628,11 @@ width:100%;
 <b style="font-weight:500;"></b>
 <ul>
 <li><span>
-[개인정보보호법 제15조에 의거  <?php echo get_session("center_name");?> 관련업무를 위해 본인의 생년월일, 주소, 연락처, 차량번호 등의 개인정보가 회원 탈퇴시까지 활용됨에 동의합니다.</span>
+개인정보보호법 제15조에 의거  <?php echo get_session("center_name");?> 관련업무를 위해 본인의 생년월일, 주소, 연락처, 차량번호 등의 개인정보가 회원 탈퇴시까지 활용됨에 동의합니다.</span>
 
 </li>
 <br>
-<li><span>신청인은 개인정보의 수집 및 활용에 동의하지 않을 수 있으며, 미동의 시 청소년수련관 이용이 제한됩니다.]
+<li><span>신청인은 개인정보의 수집 및 활용에 동의하지 않을 수 있으며, 미동의 시 청소년수련관 이용이 제한됩니다.
 </span>
 </li>
 <br>

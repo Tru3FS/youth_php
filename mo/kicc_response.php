@@ -71,7 +71,7 @@ try{
 
 
 
-$ls_url = "https://testpgapi.easypay.co.kr/api/trades/approval";
+$ls_url = "https://pgapi.easypay.co.kr/api/trades/approval";
 
 
 $approvalReqDate=date("Ymd");

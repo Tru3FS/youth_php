@@ -490,7 +490,8 @@ function CF_MEMBER_ID5($center_id, $member_name, $cellular, $birth, $url){
 	$sql = $sql."  FROM TB_Member ";
 	$sql = $sql." WHERE Center_ID   = :center_id ";
 	$sql = $sql."   AND Member_Name = :member_name ";
-	$sql = $sql."   AND (Cellular   = petra.pls_encrypt_b64(:cellular, 100) OR Birth_Date = petra.pls_encrypt_b64(:birth, 100)) ";	
+	$sql = $sql."   AND Cellular   = petra.pls_encrypt_b64(:cellular, 100) ";
+	$sql = $sql."   AND Birth_Date = petra.pls_encrypt_b64(:birth, 100) ";	
 	$sql = $sql."   AND State       = '001' ";
 
 	try{
@@ -517,7 +518,8 @@ function CF_MEMBER_ID5($center_id, $member_name, $cellular, $birth, $url){
 			$sql = $sql."  FROM TB_Member ";
 			$sql = $sql." WHERE Center_ID   = :center_id ";
 			$sql = $sql."   AND Member_Name = :member_name ";
-			$sql = $sql."   AND (Cellular   = petra.pls_encrypt_b64(:cellular, 100) OR Birth_Date = petra.pls_encrypt_b64(:birth, 100)) ";	
+			$sql = $sql."   AND Cellular   = petra.pls_encrypt_b64(:cellular, 100) ";
+			$sql = $sql."   AND Birth_Date = petra.pls_encrypt_b64(:birth, 100) ";	
 			$sql = $sql."   AND State       = '001' ";
 
 			$stmt = $db->prepare($sql);

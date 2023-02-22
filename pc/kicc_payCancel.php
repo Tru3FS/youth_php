@@ -68,7 +68,7 @@ try{
 
 
 
-$ls_url = "https://testpgapi.easypay.co.kr/api/trades/revise";
+$ls_url = "https://pgapi.easypay.co.kr/api/trades/revise";
 
 
 $cancelReqDate=date("Ymd");
@@ -89,9 +89,9 @@ $msqAuth2=$refNo.'|'.$amount.'|'.$tranDate;
 
 
 
+$secret_key = $merchantKey;
 
-
-$secret_key = "easypay!KICCTEST"; // 암복호화키
+//$secret_key = "easypay!KICCTEST"; // 암복호화키
 $msgAuthValue = hash_hmac( 'sha256', $msqAuth, $secret_key, false); // hash값을 HexString 으로 변환하세요.
 
 

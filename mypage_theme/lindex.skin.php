@@ -937,7 +937,7 @@ var goodsName2 = goodsName.substring(0, 35);
 
 
                        $.ajax({
-                           url : "https://testpgapi.easypay.co.kr/api/trades/webpay",
+                           url : "https://pgapi.easypay.co.kr/api/trades/webpay",
                            data : jsonData,
                            type : "POST",
                            async : true,
@@ -2321,7 +2321,7 @@ $.ajax({
 
 
                        $.ajax({
-                           url : "https://testpgapi.easypay.co.kr/api/trades/webpay",
+                           url : "https://pgapi.easypay.co.kr/api/trades/webpay",
                            data : jsonData,
                            type : "POST",
                            async : true,
